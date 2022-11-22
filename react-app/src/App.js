@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 import AllQuestions from './components/Splash/splash';
 import QuestionDetail from './components/QuestionDetail/questionDetail';
 import SingleQuestion from './components/OneQuestionPage/oneQuestion';
+import OwnerQuestions from './components/Owner_questions/owner_questions';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -48,6 +49,9 @@ function App() {
         </Route>
         <Route path='/question/:questionId' exact={true}>
           < SingleQuestion />
+        </Route>
+        <Route path='/your-questions' exact={true}>
+          < OwnerQuestions />
         </Route>
       </Switch>
     </BrowserRouter>

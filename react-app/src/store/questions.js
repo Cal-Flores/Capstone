@@ -1,6 +1,7 @@
 //################### Actions   ###########################
 const LOAD_QUESTIONS = 'questions/LOAD_QUESTIONS'
 const LOAD_ONE_QUESTION = 'questions/LOAD_ONE_QUESTION'
+const LOAD_USER_QUESTIONS = 'questions/LOAD_USER_QUESTIONS'
 
 
 //################## Action Creators ######################
@@ -17,6 +18,13 @@ const loadOne = (question) => {
     return {
         'type': LOAD_ONE_QUESTION,
         question
+    }
+}
+
+const userQuestions = (questions) => {
+    return {
+        'type': LOAD_USER_QUESTIONS,
+        questions
     }
 }
 
@@ -47,6 +55,17 @@ export const getOneProduct = (id) => async dispatch => {
     return
 }
 
+export const getUserQuestions = () => async dispatch => {
+    const response = await fetch(`/api/questions/your-content`)
+
+    if (response.ok) {
+        const questions = await response.json()
+        dispatch(userQuestions(questions))
+        return questions
+    }
+    return
+}
+
 let initialState = {}
 //######################## Reducer ##########################
 
@@ -59,6 +78,10 @@ const questionsReducer = (state = initialState, action) => {
         }
         case LOAD_ONE_QUESTION: {
             newState = { ...action.question.Question }
+            return newState
+        }
+        case LOAD_USER_QUESTIONS: {
+            newState = { ...action.questions }
             return newState
         }
         default:
