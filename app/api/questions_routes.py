@@ -46,7 +46,7 @@ def user_questions():
     return {'Questions': owner_questions}
 
 
-##################### Post requests ########################
+##################### Post Put requests ########################
 
 @questions_routes.route('/ask-question', methods=['POST'])
 #@login_required
@@ -69,3 +69,34 @@ def create_question():
         db.session.commit()
         return newQuestion.to_dict()
     return {'Error': 'bad request'}
+
+# edit a question
+@questions_routes.route('/<int:id>', methods=['PUT'])
+#@login_required
+def update_question(id):
+    """ Edits a question """
+    form = EditQuestionForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        question = Question.query.get(id)
+
+        question.title = form.data['title']
+        question.body = form.data['body']
+        question.image = form.data['image']
+
+        db.session.commit()
+        return question.to_dict()
+    return {'Error': 'Bad Request'}
+
+
+# delete a question
+@questions_routes.route('/<int:id>', methods=['DELETE'])
+#@login_required
+def delete_question(id):
+    question = Question.query.get(id)
+    if question is not None:
+        db.session.delete(question)
+        db.session.commit()
+        return {'nessage': 'Successfully Deleted'}
+    return 'Question not found'
