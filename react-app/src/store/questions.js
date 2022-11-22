@@ -2,6 +2,7 @@
 const LOAD_QUESTIONS = 'questions/LOAD_QUESTIONS'
 const LOAD_ONE_QUESTION = 'questions/LOAD_ONE_QUESTION'
 const LOAD_USER_QUESTIONS = 'questions/LOAD_USER_QUESTIONS'
+const CREATE_QUESTION = 'questions/CREATE_QUESTIONS'
 
 
 //################## Action Creators ######################
@@ -25,6 +26,13 @@ const userQuestions = (questions) => {
     return {
         'type': LOAD_USER_QUESTIONS,
         questions
+    }
+}
+
+const createQuestion = (question) => {
+    return {
+        'type': CREATE_QUESTION,
+        question
     }
 }
 
@@ -66,6 +74,21 @@ export const getUserQuestions = () => async dispatch => {
     return
 }
 
+export const createNewQuestion = (newQuestion) => async dispatch => {
+    const response = await fetch(`/api/questions/ask-question`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newQuestion)
+    })
+
+    if (response.ok) {
+        const question = await response.json()
+        dispatch(createQuestion(question))
+        return question
+    }
+    return
+}
+
 let initialState = {}
 //######################## Reducer ##########################
 
@@ -82,6 +105,10 @@ const questionsReducer = (state = initialState, action) => {
         }
         case LOAD_USER_QUESTIONS: {
             newState = { ...action.questions }
+            return newState
+        }
+        case CREATE_QUESTION: {
+            newState = { ...action.question }
             return newState
         }
         default:
