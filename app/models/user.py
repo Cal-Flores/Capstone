@@ -15,7 +15,7 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
 
     #relationships
-    question = db.relationship("Question", back_populates="user", cascade="all, delete-orphan")
+    questions = db.relationship("Question", back_populates="user", cascade="all, delete-orphan")
     answer = db.relationship("Answer", back_populates="user", cascade="all, delete-orphan")
 
     @property

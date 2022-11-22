@@ -12,7 +12,7 @@ class Question(db.Model):
     image = db.Column(db.String)
 
     #relationships
-    user = db.relationship('User', back_populates='question')
+    user = db.relationship('User', back_populates='questions')
     answer = db.relationship("Answer", back_populates="question", cascade="all, delete-orphan")
 
 
