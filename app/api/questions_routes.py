@@ -30,3 +30,14 @@ def one_question(id):
     new_question = question.to_dict()
 
     return {'Question': new_question}
+
+
+# get all questions by the user
+@questions_routes.route('/your-content')
+#@login_required
+def user_questions():
+    questions = Question.query.filter(Question.user_id == current_user.id).all()
+    owner_questions = []
+    owner_questions.extend([i.to_dict() for i in questions])
+
+    return {'Questions': owner_questions}
