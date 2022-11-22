@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, Redirect, useHistory, useParams } from 'react-router-dom'
 import { getUserQuestions } from '../../store/questions'
+import OwnerQuestionCard from '../Your-Questions/your-questions'
 
 function OwnerQuestions() {
     const dispatch = useDispatch()
@@ -14,12 +15,8 @@ function OwnerQuestions() {
     return (
         <div>
             <h1>Your questions mate</h1>
-            {questions.map(question => (
-                <div>
-                    <div>Answer</div>
-                    <div>{question.title}</div>
-                    <div>------------------------</div>
-                </div>
+            {questions?.map(question => (
+                <OwnerQuestionCard question={question} />
             ))}
         </div>
 
