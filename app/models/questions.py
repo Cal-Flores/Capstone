@@ -17,12 +17,12 @@ class Question(db.Model):
 
 
 
-    # def to_dict(self):
-    #     return {
-    #         'id': self.id,
-    #         'user_id': self.user_id,
-    #         'title': self.title,
-    #         'body': self.body,
-    #         'topic': self.topic,
-    #         'image
-    #     }
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'user_id': self.user_id,
+            'title': self.title,
+            'body': self.body,
+            'topic': self.topic,
+            'image
+        }
