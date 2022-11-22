@@ -9,6 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import AllQuestions from './components/Splash/splash';
+import QuestionDetail from './components/QuestionDetail/questionDetail';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -50,3 +51,7 @@ function App() {
 }
 
 export default App;
+
+        // <Route path='/question/:questionId' exact={true}>
+        //   < QuestionDetail />
+        // </Route>

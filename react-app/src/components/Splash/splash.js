@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Redirect, useHistory } from 'react-router-dom'
 import { getAllQuestions } from '../../store/questions'
+import QuestionDetail from '../QuestionDetail/questionDetail'
 
 function AllQuestions() {
     const dispatch = useDispatch()
@@ -19,11 +20,7 @@ function AllQuestions() {
             <h1>Hello Quorra</h1>
             <div>
                 {questions?.map(question => (
-                    <div>
-                        <div>{question.title}</div>
-                        <div>{question.body}</div>
-                        <div>---------------------------------</div>
-                    </div>
+                    <QuestionDetail key={question?.id} question={question} />
                 ))}
 
             </div>
