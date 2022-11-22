@@ -17,4 +17,16 @@ def index():
     all_questions = []
     all_questions.extend([i.to_dict() for i in questions])
 
-    return {'Questions': questions}
+    return {'Questions': all_questions}
+
+
+# get question by id
+@questions_routes.route('/<int:id>', methods=['GET'])
+def one_question(id):
+    """ get one question for question detail page """
+
+    question = Question.query.get(id)
+
+    new_question = question.to_dict()
+
+    return {'Question': new_question}

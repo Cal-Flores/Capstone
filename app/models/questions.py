@@ -23,6 +23,5 @@ class Question(db.Model):
             'user_id': self.user_id,
             'title': self.title,
             'body': self.body,
-            'topic': self.topic,
-            'image
+            'image': self.image,
         }
