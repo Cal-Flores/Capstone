@@ -98,5 +98,5 @@ def delete_question(id):
     if question is not None:
         db.session.delete(question)
         db.session.commit()
-        return {'nessage': 'Successfully Deleted'}
+        return {'message': 'Successfully Deleted'}
     return 'Question not found'
