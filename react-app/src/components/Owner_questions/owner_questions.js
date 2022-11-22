@@ -12,7 +12,17 @@ function OwnerQuestions() {
         dispatch(getUserQuestions())
     }, [dispatch])
     return (
-        <h1>Your questions mate</h1>
+        <div>
+            <h1>Your questions mate</h1>
+            {questions.map(question => (
+                <div>
+                    <div>Answer</div>
+                    <div>{question.title}</div>
+                    <div>------------------------</div>
+                </div>
+            ))}
+        </div>
+
     )
 }
 
