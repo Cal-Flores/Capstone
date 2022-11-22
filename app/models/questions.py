@@ -14,6 +14,7 @@ class Question(db.Model):
 
     #relationships
     user = db.relationship('User', back_populates='question')
+    answer = db.relationship("Answer", back_populates="question", cascade="all, delete-orphan")
 
 
 
