@@ -4,6 +4,7 @@ import { Link, Redirect, useHistory, useParams } from 'react-router-dom'
 import { getUserAnswers } from '../../store/answers'
 import { getUserQuestions } from '../../store/questions'
 import OwnerQuestionCard from '../Your-Questions/your-questions'
+import OwnerAnswerCard from '../Owner_answer_card/owner_answer_card'
 
 function OwnerQuestions() {
     const dispatch = useDispatch()
@@ -29,7 +30,7 @@ function OwnerQuestions() {
             </div>
             {answers?.map(answer => (
                 <div>
-                    {/* <OwnerAnswerCard answer={answer} /> */}
+                    <OwnerAnswerCard answer={answer} />
                 </div>
             ))}
         </div>

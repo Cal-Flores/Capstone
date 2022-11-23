@@ -29,7 +29,7 @@ const NavBar = () => {
         </li>
         <li>
           <NavLink to='/your-questions' exact={true} activeClassName='active'>
-            My Questions
+            My Content
           </NavLink>
         </li>
         <li>

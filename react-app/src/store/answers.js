@@ -2,6 +2,8 @@
 const LOAD_ANSWERS = 'answers/LOAD_ANSWERS'
 const CREATE_ANSWER = 'answers/CREATE_ANSWER'
 const LOAD_USER_ANSWERS = 'answers/LOAD_USER_ANSWERS'
+const EDIT_ANSWER = 'answers/EDIT_ANSWER'
+const DELETE_ANSWER = 'answers/DELETE_ANSWER'
 
 
 //################## Action Creators ######################
@@ -24,6 +26,20 @@ const userQuestion = (answers) => {
     return {
         'type': LOAD_USER_ANSWERS,
         answers
+    }
+}
+
+const editAnswer = (newAnswer) => {
+    return {
+        'type': EDIT_ANSWER,
+        newAnswer
+    }
+}
+
+const deleteAnswer = (answer) => {
+    return {
+        'type': DELETE_ANSWER,
+        answer
     }
 }
 
@@ -61,6 +77,30 @@ export const getUserAnswers = () => async dispatch => {
         return answers
     }
     return
+}
+
+export const updateAnswer = (answer, answerId) => async dispatch => {
+    const response = await fetch(`/api/answers/${answerId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(answer)
+    })
+
+    if (response.ok) {
+        const newAnswer = await response.json()
+        dispatch(editAnswer(newAnswer))
+        return newAnswer
+    }
+    return
+}
+
+export const deleteAAnswer = (answerId) => async dispatch => {
+    const response = await fetch(`/api/answers/${answerId}`, {
+        method: 'DELETE'
+    })
+    if (response.ok) {
+        dispatch(deleteAnswer(answerId))
+    }
 }
 
 let initialState = {}
