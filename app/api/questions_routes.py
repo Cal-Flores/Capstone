@@ -36,7 +36,7 @@ def one_question(id):
 
 # get all questions by the user
 @questions_routes.route('/your-content')
-#@login_required
+@login_required
 def user_questions():
     """ get all questions by the user """
     questions = Question.query.filter(Question.user_id == current_user.id).all()
@@ -49,7 +49,7 @@ def user_questions():
 ##################### Post Put requests ########################
 
 @questions_routes.route('/ask-question', methods=['POST'])
-#@login_required
+@login_required
 def create_question():
     """ post a new question """
     form = CreateQuestionForm()

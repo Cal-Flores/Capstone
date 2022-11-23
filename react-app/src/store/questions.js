@@ -151,16 +151,16 @@ const questionsReducer = (state = initialState, action) => {
             newState = { ...action.question }
             return newState
         }
-        case EDIT_QUESTION: {
-            newState = { ...state }
-            newState = { ...action.questions }
+        // case EDIT_QUESTION: {
+        //     newState = { ...state }
+        //     newState = { ...action.questions }
 
-        }
-        case DELETE_QUESTION: {
-            delete newState[action.deleted]
-            newState = { ...newState }
-            return newState
-        }
+        // }
+        // case DELETE_QUESTION: {
+        //     delete newState[action.deleted]
+        //     newState = { ...newState }
+        //     return newState
+        // }
         default:
             return state
     }
