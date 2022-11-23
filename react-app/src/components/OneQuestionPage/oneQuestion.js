@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, Redirect, useHistory, useParams } from 'react-router-dom'
-import { getAllReviews } from '../../store/answers'
+import { createNewAnswer, getAllReviews } from '../../store/answers'
 import { getOneProduct } from '../../store/questions'
 
 function SingleQuestion() {
@@ -9,18 +9,39 @@ function SingleQuestion() {
     const { questionId } = useParams()
     const question = useSelector(state => state.questions)
     const answers = useSelector(state => state.answers.Answers)
-    const users = useSelector(state => state)
-    console.log('these are all my users', users)
+    const [body, setBody] = useState('')
+    const [image, setImage] = useState('')
 
 
     useEffect(() => {
         dispatch(getOneProduct(questionId)).then(() => dispatch(getAllReviews(questionId)))
     }, [dispatch])
+
+    const handleSub = (e) => {
+        e.preventDefault()
+
+        let newAnswer = {
+            body,
+            image
+        }
+
+        dispatch(createNewAnswer(questionId, newAnswer)).then(() => dispatch(getAllReviews(questionId)))
+        setBody('')
+    }
+
     return (
         <div>
             <div>
                 <h1>{question.title}</h1>
                 <div>{question.body}</div>
+                <form onSubmit={handleSub}>
+                    <div>
+                        <input required type='text' placeholder='Add a comment...' value={body} onChange={(e) => setBody(e.target.value)} />
+                    </div>
+                    <div>
+                        <button type='submit'>Add Comment</button>
+                    </div>
+                </form>
                 <div>##########################</div>
             </div>
             <div>
@@ -28,7 +49,7 @@ function SingleQuestion() {
                     <div>
                         <div>{answer?.body}</div>
                         <div>{answer?.user_id}</div>
-                        <div>#######################</div>
+                        <div>-----------------------</div>
                     </div>
                 ))}
             </div>

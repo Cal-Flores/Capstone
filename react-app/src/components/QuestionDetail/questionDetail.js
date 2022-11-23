@@ -9,6 +9,7 @@ function QuestionDetail({ question }) {
                 <Link key={question.id} to={`/question/${question.id}`}>{question.title}</Link>
             </h2>
             <div>{question.body}</div>
+            <button>comments</button>
         </div>
     )
 }
