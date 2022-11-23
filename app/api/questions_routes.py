@@ -72,7 +72,7 @@ def create_question():
 
 # edit a question
 @questions_routes.route('/<int:id>', methods=['PUT'])
-#@login_required
+@login_required
 def update_question(id):
     """ Edits a question """
     form = EditQuestionForm()
@@ -92,7 +92,7 @@ def update_question(id):
 
 # delete a question
 @questions_routes.route('/<int:id>', methods=['DELETE'])
-#@login_required
+@login_required
 def delete_question(id):
     question = Question.query.get(id)
     if question is not None:

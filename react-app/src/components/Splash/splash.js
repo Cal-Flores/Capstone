@@ -7,7 +7,17 @@ import QuestionDetail from '../QuestionDetail/questionDetail'
 function AllQuestions() {
     const dispatch = useDispatch()
     const questions = useSelector(state => state.questions.Questions)
-    console.log('this is all my questuons', questions)
+    const user = useSelector(state => state.session.user)
+
+    console.log('this is all my users', user)
+
+    let loggedin
+    let log = false
+    if (user) {
+        log = true
+        loggedin = (<div>Hello {user.username}</div>)
+    }
+
 
 
     useEffect(() => {
@@ -18,6 +28,9 @@ function AllQuestions() {
     return (
         <div>
             <h1>Hello Quorra</h1>
+            <div>
+                {log && loggedin}
+            </div>
             <div>
                 {questions?.map(question => (
                     <QuestionDetail key={question?.id} question={question} />

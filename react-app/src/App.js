@@ -52,15 +52,15 @@ function App() {
         <Route path='/question/:questionId' exact={true}>
           < SingleQuestion />
         </Route>
-        <Route path='/your-questions' exact={true}>
+        <ProtectedRoute path='/your-questions' exact={true}>
           < OwnerQuestions />
-        </Route>
-        <Route path='/create-question' exact={true}>
+        </ProtectedRoute>
+        <ProtectedRoute path='/create-question' exact={true}>
           < QuestionForm />
-        </Route>
-        <Route path='/editQuestion/:questionId' exact={true}>
+        </ProtectedRoute>
+        <ProtectedRoute path='/editQuestion/:questionId' exact={true}>
           < EditQuestionForm />
-        </Route>
+        </ProtectedRoute>
       </Switch>
     </BrowserRouter>
   );
