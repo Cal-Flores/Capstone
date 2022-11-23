@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import db, Question
-from app.forms import CreateQuestionForm, EditQuestionForm
+from app.models import db, Question, Answer
+from app.forms import CreateQuestionForm, EditQuestionForm, CreateAnswerForm, EditAnswerForm
 from flask_login import current_user, login_user, logout_user, login_required
 
 import random
@@ -44,6 +44,40 @@ def user_questions():
     owner_questions.extend([i.to_dict() for i in questions])
 
     return {'Questions': owner_questions}
+
+
+##################### Answer requests ##########################
+
+# get answers to one question
+@questions_routes.route('/<int:id>/answers', methods=['GET'])
+def get_Answers(id):
+    answers = Answer.query.filter(Answer.question_id == id).all()
+    all_answers = []
+    all_answers.extend([i.to_dict() for i in answers])
+    return {'Answers': all_answers}
+
+
+# create answer to a question
+@questions_routes.route('/<int:id>/answers', methods=['POST'])
+@login_required
+def create_answer(id):
+    print('this is id', id)
+    form = CreateAnswerForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        params = {
+            'body': form.data['body'],
+            'image': form.data['image'],
+            'question_id': id,
+            'user_id': current_user.id,
+        }
+        new_answer = Answer(**params)
+        db.session.add(new_answer)
+        db.session.commit()
+        return {'answer': new_answer.to_dict()}
+    return 'not working'
+
+
 
 
 ##################### Post Put requests ########################

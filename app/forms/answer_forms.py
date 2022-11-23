@@ -4,8 +4,8 @@ from wtforms.validators import DataRequired
 
 class CreateAnswerForm(FlaskForm):
     body = StringField('Body', validators=[DataRequired()])
-    title = StringField('Titless', validators=[DataRequired()])
+    image = StringField('Image')
 
 class EditAnswerForm(FlaskForm):
     body = StringField('Body', validators=[DataRequired()])
-    title = StringField('Titless', validators=[DataRequired()])
+    image = StringField('Image')
