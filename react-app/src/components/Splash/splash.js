@@ -6,6 +6,7 @@ import QuestionDetail from '../QuestionDetail/questionDetail'
 
 function AllQuestions() {
     const dispatch = useDispatch()
+    const history = useHistory()
     const questions = useSelector(state => state.questions.Questions)
     const user = useSelector(state => state.session.user)
 
@@ -27,9 +28,14 @@ function AllQuestions() {
 
     return (
         <div>
-            <h1>Hello Quorra</h1>
             <div>
                 {log && loggedin}
+            </div>
+            <div>
+                <div onClick={(e) => history.push(`/create-question`)}>
+                    <input type='text' placeholder='What do you want to ask?' />
+                    <div>Ask icon</div>
+                </div>
             </div>
             <div>
                 {questions?.map(question => (

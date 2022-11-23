@@ -18,7 +18,7 @@ function OwnerQuestions() {
     return (
         <div>
             <div>
-                <h1>Your questions mate</h1>
+                <h1>Your Content</h1>
                 {questions?.map(question => (
                     <div>
                         <OwnerQuestionCard question={question} />
