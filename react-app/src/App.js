@@ -14,6 +14,7 @@ import SingleQuestion from './components/OneQuestionPage/oneQuestion';
 import OwnerQuestions from './components/Owner_questions/owner_questions';
 import QuestionForm from './components/CreateQuestionForm/questionForm';
 import EditQuestionForm from './components/EditQuestionForm/editQuestionForm';
+import EditAnswerForm from './components/EditAnswerForm/editAnswerForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -60,6 +61,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/editQuestion/:questionId' exact={true}>
           < EditQuestionForm />
+        </ProtectedRoute>
+        <ProtectedRoute path='/editAnswer/:answerId' exact={true}>
+          < EditAnswerForm />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
