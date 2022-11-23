@@ -17,7 +17,7 @@ function OwnerQuestionCard({ question }) {
     }
     return (
         <div>
-            <div>Question</div>
+            <div onClick={(e) => history.push(`question/${question.id}`)}>Question</div>
             <div>{question.title}</div>
             <button onClick={editbtn}>Edit</button>
             <button onClick={deletebtn}>Delete</button>

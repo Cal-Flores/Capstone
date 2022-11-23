@@ -7,6 +7,11 @@ function OwnerAnswerCard({ answer }) {
     const history = useHistory()
     const dispatch = useDispatch()
 
+    const redirectme = (e) => {
+        e.preventDefault()
+        history.push(`question/${answer.question_id}`)
+    }
+
     const editbtn = (e) => {
         e.preventDefault()
         history.push(`/editAnswer/${answer.id}`)
@@ -17,7 +22,7 @@ function OwnerAnswerCard({ answer }) {
     }
     return (
         <div>
-            <div>Answer</div>
+            <div onClick={redirectme}>Answer</div>
             <div>{answer.body}</div>
             <button onClick={editbtn}>Edit</button>
             <button onClick={deletebtn}>Delete</button>
