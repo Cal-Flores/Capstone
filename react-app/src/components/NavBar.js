@@ -3,6 +3,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import LoginFormModal from "./LoginFormModal";
+import SignUpFormModal from "./SignupFormModal";
 
 
 const NavBar = () => {
@@ -33,6 +34,9 @@ const NavBar = () => {
         <div>
           <LoginFormModal />
         </div>
+        <div>
+          <SignUpFormModal />
+        </div>
       </>
     )
   }
@@ -41,29 +45,11 @@ const NavBar = () => {
       <ul>
         <li>
           <NavLink to='/' exact={true} activeClassName='active'>
-            FourthQuorra
+            Home
           </NavLink>
         </li>
         <li>
-          <NavLink to='/login' exact={true} activeClassName='active'>
-            Login
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/sign-up' exact={true} activeClassName='active'>
-            Sign Up
-          </NavLink>
-        </li>
-        <li>
-        </li>
-        <li>
-
-        </li>
-        <li>
-
-        </li>
-        <li>
-
+          {userLinks}
         </li>
       </ul>
     </nav>
