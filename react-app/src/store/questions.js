@@ -7,6 +7,7 @@ const EDIT_QUESTION = 'question/EDIT_QUESTION'
 const DELETE_QUESTION = 'question/DELETE_QUESTION'
 
 
+
 //################## Action Creators ######################
 
 // loads all questions for splash page
@@ -51,6 +52,7 @@ const deleteQuestion = (question) => {
         question
     }
 }
+
 
 
 
@@ -128,6 +130,7 @@ export const deleteAQuestion = (questionId) => async dispatch => {
         dispatch(deleteQuestion(questionId))
     }
 }
+
 
 let initialState = {}
 //######################## Reducer ##########################

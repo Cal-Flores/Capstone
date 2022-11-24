@@ -3,12 +3,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, Redirect, useHistory, useParams } from 'react-router-dom'
 import OnePageAnswers from '../OnePageAnswers/onePageAnswers'
 import { createNewAnswer, getAllReviews } from '../../store/answers'
-import { getOneProduct } from '../../store/questions'
+import { getAllQuestions, getOneProduct, getRelatedQuestions } from '../../store/questions'
 
 function SingleQuestion() {
     const dispatch = useDispatch()
     const { questionId } = useParams()
     const question = useSelector(state => state.questions)
+    console.log('single question ==', question)
     const answers = useSelector(state => state.answers.Answers)
     const [body, setBody] = useState('')
     const [image, setImage] = useState('')
@@ -17,6 +18,8 @@ function SingleQuestion() {
     useEffect(() => {
         dispatch(getOneProduct(questionId)).then(() => dispatch(getAllReviews(questionId)))
     }, [dispatch])
+
+
 
 
     const handleSub = (e) => {

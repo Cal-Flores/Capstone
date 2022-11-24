@@ -22,6 +22,7 @@ def index():
     return {'Questions': all_questions}
 
 
+
 # get question by id
 @questions_routes.route('/<int:id>', methods=['GET'])
 def one_question(id):

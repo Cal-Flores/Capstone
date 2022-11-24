@@ -15,6 +15,7 @@ import OwnerQuestions from './components/Owner_questions/owner_questions';
 import QuestionForm from './components/CreateQuestionForm/questionForm';
 import EditQuestionForm from './components/EditQuestionForm/editQuestionForm';
 import EditAnswerForm from './components/EditAnswerForm/editAnswerForm';
+import RelatedQuestions from './components/RelatedQuestions/relatedQuestions';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -46,6 +47,7 @@ function App() {
         </Route>
         <Route path='/question/:questionId' exact={true}>
           < SingleQuestion />
+          < RelatedQuestions />
         </Route>
         <ProtectedRoute path='/your-questions' exact={true}>
           < OwnerQuestions />
