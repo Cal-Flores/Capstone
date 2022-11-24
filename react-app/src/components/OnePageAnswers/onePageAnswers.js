@@ -18,7 +18,10 @@ function OnePageAnswers({ answer }) {
     console.log('this is my ultimate user MAAM', user)
     return (
         <div>
-            <div>{user?.username}</div>
+            <div>
+                {user?.profile_pic && <img src={user?.profile_pic} style={{ width: '40px', height: '40px', borderRadius: '25px' }} />}
+            </div>
+            <div>{user?.first_name} {user?.last_name}</div>
             <div>{answer.body}</div>
             <div>--------------------</div>
         </div>

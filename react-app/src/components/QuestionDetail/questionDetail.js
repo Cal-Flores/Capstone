@@ -34,7 +34,10 @@ function QuestionDetail({ question }) {
             <h2>
                 <Link key={question.id} to={`/question/${question.id}`}>{question.title}</Link>
             </h2>
-            <div>{user?.username}</div>
+            <div>
+                {user?.profile_pic && <img src={user?.profile_pic} style={{ width: '40px', height: '40px', borderRadius: '25px' }} />}
+            </div>
+            <div>{user?.first_name} {user?.last_name}</div>
             <div>{question.body}</div>
             <button onClick={revealcomms}>comments</button>
             {com && (
