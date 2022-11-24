@@ -18,7 +18,15 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password, first_name, last_name, profile_pic));
+      const obj = {
+        first_name,
+        last_name,
+        profile_pic,
+        username,
+        email,
+        password
+      }
+      const data = await dispatch(signUp(obj));
       if (data) {
         setErrors(data)
       }
@@ -75,7 +83,7 @@ const SignUpForm = () => {
         <input
           type='text'
           name='firstname'
-          onChange={setFirstName}
+          onChange={(e) => setFirstName(e.target.value)}
           value={first_name}
         ></input>
       </div>
@@ -84,7 +92,7 @@ const SignUpForm = () => {
         <input
           type='text'
           name='lastname'
-          onChange={setLastName}
+          onChange={(e) => setLastName(e.target.value)}
           value={last_name}
         ></input>
       </div>
@@ -92,8 +100,8 @@ const SignUpForm = () => {
         <label>Profile Image</label>
         <input
           type='text'
-          name='lastname'
-          onChange={setProfilePic}
+          name='profilepic'
+          onChange={(e) => setProfilePic(e.target.value)}
           value={profile_pic}
         ></input>
       </div>

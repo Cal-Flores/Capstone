@@ -35,7 +35,7 @@ function QuestionDetail({ question }) {
                 <Link key={question.id} to={`/question/${question.id}`}>{question.title}</Link>
             </h2>
             <div>
-                {user?.profile_pic && <img src={user?.profile_pic} style={{ width: '40px', height: '40px', borderRadius: '25px' }} />}
+                <img src={user?.profile_pic} onError={(e) => { e.target.src = 'https://cdn-icons-png.flaticon.com/128/149/149071.png' }} style={{ width: '40px', height: '40px', borderRadius: '25px' }} />
             </div>
             <div>{user?.first_name} {user?.last_name}</div>
             <div>{question.body}</div>

@@ -42,9 +42,6 @@ function EditQuestionForm() {
                 <textarea required type='text' placeholder='Start your question with "What", "How", "Why", etc' value={body} onChange={(e) => setBody(e.target.value)} />
             </div>
             <div>
-                <input type='text' placeholder='Image Url' value={image} onChange={(e) => setImage(e.target.value)} />
-            </div>
-            <div>
                 <button type='submit'>Add Question</button>
             </div>
         </form>
