@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, Redirect, useHistory, useParams } from 'react-router-dom'
+import OnePageAnswers from '../OnePageAnswers/onePageAnswers'
 import { createNewAnswer, getAllReviews } from '../../store/answers'
 import { getOneProduct } from '../../store/questions'
 
@@ -16,6 +17,7 @@ function SingleQuestion() {
     useEffect(() => {
         dispatch(getOneProduct(questionId)).then(() => dispatch(getAllReviews(questionId)))
     }, [dispatch])
+
 
     const handleSub = (e) => {
         e.preventDefault()
@@ -47,9 +49,7 @@ function SingleQuestion() {
             <div>
                 {answers?.map(answer => (
                     <div>
-                        <div>{answer?.body}</div>
-                        <div>{answer?.user_id}</div>
-                        <div>-----------------------</div>
+                        <OnePageAnswers answer={answer} />
                     </div>
                 ))}
             </div>

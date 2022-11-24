@@ -10,7 +10,6 @@ function AllQuestions() {
     const questions = useSelector(state => state.questions.Questions)
     const user = useSelector(state => state.session.user)
 
-    console.log('this is all my users', user)
 
     let loggedin
     let log = false
