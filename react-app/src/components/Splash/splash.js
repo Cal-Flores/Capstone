@@ -33,9 +33,12 @@ function AllQuestions() {
             <div>
                 {log && loggedin}
             </div>
-            <div>
-                <CreateSplashQuestionFormModal />
-            </div>
+            {user &&
+
+                <div>
+                    <CreateSplashQuestionFormModal />
+                </div>
+            }
             <div>
                 {questions?.map(question => (
                     <QuestionDetail key={question?.id} question={question} />
