@@ -20,7 +20,7 @@ function OwnerQuestionCard({ question }) {
         <div>
             <div onClick={(e) => history.push(`question/${question.id}`)}>Question</div>
             <div>{question.title}</div>
-            < EditQuestionFormModal />
+            < EditQuestionFormModal q={question} />
             <button onClick={deletebtn}>Delete</button>
             <div>------------------------</div>
         </div>

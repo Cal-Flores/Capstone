@@ -4,7 +4,8 @@ import EditQuestionForm from './editQuestionForm';
 
 
 
-function EditQuestionFormModal() {
+function EditQuestionFormModal({ q }) {
+    console.log('stinky amy', q)
     const [showModal, setShowModal] = useState(false);
 
     return (
@@ -12,7 +13,7 @@ function EditQuestionFormModal() {
             <button onClick={() => setShowModal(true)}>Edit</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <EditQuestionForm setShowModal={setShowModal} />
+                    <EditQuestionForm setShowModal={setShowModal} q={q} />
                 </Modal>
             )}
         </>

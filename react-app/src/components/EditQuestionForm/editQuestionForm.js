@@ -5,16 +5,17 @@ import { getAllQuestions, getUserQuestions, updateQuestion } from '../../store/q
 
 
 
-function EditQuestionForm() {
+function EditQuestionForm({ q }) {
+    console.log('amys mells nice', q)
     const dispatch = useDispatch()
     const history = useHistory()
     const { questionId } = useParams()
 
     const questions = useSelector(state => state.questions.Questions)
     const question = questions?.filter(question => question?.id == questionId)[0]
-    const [title, setTitle] = useState(question?.title)
-    const [body, setBody] = useState(question?.body)
-    const [image, setImage] = useState(question?.image)
+    const [title, setTitle] = useState(q?.title)
+    const [body, setBody] = useState(q?.body)
+    const [image, setImage] = useState(q?.image)
 
 
     const handleSubmit = async (e) => {
