@@ -1,15 +1,47 @@
-
+import { useSelector } from "react-redux";
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
+import LoginFormModal from "./LoginFormModal";
+
 
 const NavBar = () => {
+  const sessionUser = useSelector(state => state.session.user)
+
+  let userLinks;
+  if (sessionUser) {
+    userLinks = (
+      <div>
+        <div>
+          <NavLink to='/your-questions' exact={true} activeClassName='active'>
+            My Contents
+          </NavLink>
+        </div>
+        <div>
+          <NavLink to='/create-question' exact={true} activeClassName='active'>
+            Add Question
+          </NavLink>
+        </div>
+        <div>
+          <LogoutButton />
+        </div>
+      </div>
+    )
+  } else {
+    userLinks = (
+      <>
+        <div>
+          <LoginFormModal />
+        </div>
+      </>
+    )
+  }
   return (
     <nav>
       <ul>
         <li>
           <NavLink to='/' exact={true} activeClassName='active'>
-            Home
+            FourthQuorra
           </NavLink>
         </li>
         <li>
@@ -23,22 +55,15 @@ const NavBar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to='/users' exact={true} activeClassName='active'>
-            Users
-          </NavLink>
         </li>
         <li>
-          <NavLink to='/your-questions' exact={true} activeClassName='active'>
-            My Content
-          </NavLink>
+
         </li>
         <li>
-          <NavLink to='/create-question' exact={true} activeClassName='active'>
-            Add Question
-          </NavLink>
+
         </li>
         <li>
-          <LogoutButton />
+
         </li>
       </ul>
     </nav>
