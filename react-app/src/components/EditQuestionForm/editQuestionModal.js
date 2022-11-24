@@ -5,7 +5,6 @@ import EditQuestionForm from './editQuestionForm';
 
 
 function EditQuestionFormModal({ q }) {
-    console.log('stinky amy', q)
     const [showModal, setShowModal] = useState(false);
 
     return (

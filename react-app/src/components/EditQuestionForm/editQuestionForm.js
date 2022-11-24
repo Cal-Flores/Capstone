@@ -5,8 +5,7 @@ import { getAllQuestions, getUserQuestions, updateQuestion } from '../../store/q
 
 
 
-function EditQuestionForm({ q }) {
-    console.log('amys mells nice', q)
+function EditQuestionForm({ q, setShowModal }) {
     const dispatch = useDispatch()
     const history = useHistory()
     const { questionId } = useParams()
@@ -27,7 +26,8 @@ function EditQuestionForm({ q }) {
             image
         }
 
-        dispatch(updateQuestion(newQuestion, questionId)).then(() => dispatch(getUserQuestions()))
+        dispatch(updateQuestion(newQuestion, q.id)).then(() => dispatch(getUserQuestions()))
+        setShowModal(false)
         return history.push('/your-questions')
     }
 

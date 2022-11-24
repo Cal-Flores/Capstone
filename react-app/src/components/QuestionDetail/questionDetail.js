@@ -20,7 +20,6 @@ function QuestionDetail({ question }) {
     }, []);
 
     const user = users?.filter(user => user?.id == question.user_id)[0]
-    console.log('this is my ultimate user dude', user)
 
     const [com, setCom] = useState(false)
     const revealcomms = (e) => {

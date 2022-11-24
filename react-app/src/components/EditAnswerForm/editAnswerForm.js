@@ -4,15 +4,15 @@ import { useHistory, useParams } from 'react-router-dom'
 import { getUserAnswers, updateAnswer } from '../../store/answers'
 
 
-function EditAnswerForm() {
+function EditAnswerForm({ a, setShowModal }) {
     const dispatch = useDispatch()
     const history = useHistory()
     const { answerId } = useParams()
 
     const answers = useSelector(state => state.answers.answers)
     const answer = answers?.filter(answer => answer?.id == answerId)[0]
-    const [body, setBody] = useState(answer?.body)
-    const [image, setImage] = useState(answer?.image)
+    const [body, setBody] = useState(a?.body)
+    const [image, setImage] = useState(a?.image)
 
 
     const handleSub = async (e) => {
@@ -23,7 +23,8 @@ function EditAnswerForm() {
             image
         }
 
-        dispatch(updateAnswer(newAnswer, answerId)).then(() => dispatch(getUserAnswers()))
+        dispatch(updateAnswer(newAnswer, a.id)).then(() => dispatch(getUserAnswers()))
+        setShowModal(false)
         history.push('/your-questions')
     }
     return (

@@ -8,7 +8,6 @@ function ProfileButton() {
     const dispatch = useDispatch();
     const [showMenu, setShowMenu] = useState(false);
     const user = useSelector(state => state.session.user)
-    console.log('hellow world', user)
 
     const openMenu = () => {
         if (showMenu) return;

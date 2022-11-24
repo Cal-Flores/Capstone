@@ -7,7 +7,6 @@ import QuestionForm from './questionForm';
 function CreateSplashQuestionFormModal() {
     const [showModal, setShowModal] = useState(false);
     const user = useSelector(state => state.session.user)
-    console.log('blanket', user)
 
     return (
         <>

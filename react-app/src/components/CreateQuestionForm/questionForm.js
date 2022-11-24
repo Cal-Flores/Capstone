@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom'
 import { createNewQuestion, getAllQuestions } from '../../store/questions'
 
 
-function QuestionForm() {
+function QuestionForm({ setShowModal }) {
     const dispatch = useDispatch()
     const history = useHistory()
     const [title, setTitle] = useState('')
@@ -21,7 +21,7 @@ function QuestionForm() {
         }
 
         dispatch(createNewQuestion(newQuestion)).then(() => dispatch(getAllQuestions()))
-
+        setShowModal(false)
         return history.push('/')
     }
 

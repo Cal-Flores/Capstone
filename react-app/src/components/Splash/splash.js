@@ -11,7 +11,6 @@ function AllQuestions() {
     const history = useHistory()
     const questions = useSelector(state => state.questions.Questions)
     const user = useSelector(state => state.session.user)
-    console.log('blanket', user)
     const [modal, setModal] = useState(false)
 
 

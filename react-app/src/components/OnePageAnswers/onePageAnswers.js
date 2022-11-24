@@ -15,7 +15,6 @@ function OnePageAnswers({ answer }) {
     }, []);
 
     const user = users?.filter(user => user?.id == answer.user_id)[0]
-    console.log('this is my ultimate user MAAM', user)
     return (
         <div>
             <div>

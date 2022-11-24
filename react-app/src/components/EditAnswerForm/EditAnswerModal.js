@@ -4,7 +4,7 @@ import EditAnswerForm from './editAnswerForm';
 
 
 
-function EditQuestionFormModal() {
+function EditAnswerFormModal({ a }) {
     const [showModal, setShowModal] = useState(false);
 
     return (
@@ -12,11 +12,11 @@ function EditQuestionFormModal() {
             <button onClick={() => setShowModal(true)}>Edit</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <EditAnswerForm setShowModal={setShowModal} />
+                    <EditAnswerForm setShowModal={setShowModal} a={a} />
                 </Modal>
             )}
         </>
     );
 }
 
-export default EditQuestionFormModal;
+export default EditAnswerFormModal;
