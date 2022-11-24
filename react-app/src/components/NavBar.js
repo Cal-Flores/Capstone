@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import LoginFormModal from "./LoginFormModal";
 import SignUpFormModal from "./SignupFormModal";
+import CreateQuestionFormModal from "./CreateQuestionForm/CreateQuestionModal";
 
 
 const NavBar = () => {
@@ -19,9 +20,7 @@ const NavBar = () => {
           </NavLink>
         </div>
         <div>
-          <NavLink to='/create-question' exact={true} activeClassName='active'>
-            Add Question
-          </NavLink>
+          <CreateQuestionFormModal />
         </div>
         <div>
           <LogoutButton />

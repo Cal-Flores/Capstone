@@ -16,9 +16,6 @@ function EditQuestionForm() {
     const [body, setBody] = useState(question?.body)
     const [image, setImage] = useState(question?.image)
 
-    useEffect(() => {
-        dispatch(getAllQuestions())
-    }, [dispatch])
 
     const handleSubmit = async (e) => {
         e.preventDefault()

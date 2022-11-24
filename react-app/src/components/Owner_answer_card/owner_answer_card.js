@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, Redirect, useHistory, useParams } from 'react-router-dom'
 import { deleteAAnswer, getUserAnswers } from '../../store/answers'
+import EditQuestionFormModal from '../EditQuestionForm/editQuestionModal'
 
 function OwnerAnswerCard({ answer }) {
     const history = useHistory()
@@ -12,10 +13,6 @@ function OwnerAnswerCard({ answer }) {
         history.push(`question/${answer.question_id}`)
     }
 
-    const editbtn = (e) => {
-        e.preventDefault()
-        history.push(`/editAnswer/${answer.id}`)
-    }
     const deletebtn = async (e) => {
         e.preventDefault()
         dispatch(deleteAAnswer(answer.id)).then(() => dispatch(getUserAnswers()))
@@ -24,7 +21,7 @@ function OwnerAnswerCard({ answer }) {
         <div>
             <div onClick={redirectme}>Answer</div>
             <div>{answer.body}</div>
-            <button onClick={editbtn}>Edit</button>
+            < EditQuestionFormModal />
             <button onClick={deletebtn}>Delete</button>
             <div>------------------------------------</div>
         </div>

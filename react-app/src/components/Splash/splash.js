@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Redirect, useHistory } from 'react-router-dom'
 import { getAllQuestions } from '../../store/questions'
+import CreateQuestionFormModal from '../CreateQuestionForm/CreateQuestionModal'
+import CreateSplashQuestionFormModal from '../CreateQuestionForm/CreateSplashQuestionModal'
 import QuestionDetail from '../QuestionDetail/questionDetail'
 
 function AllQuestions() {
@@ -9,6 +11,8 @@ function AllQuestions() {
     const history = useHistory()
     const questions = useSelector(state => state.questions.Questions)
     const user = useSelector(state => state.session.user)
+    console.log('blanket', user)
+    const [modal, setModal] = useState(false)
 
 
     let loggedin
@@ -24,17 +28,13 @@ function AllQuestions() {
         dispatch(getAllQuestions())
     }, [dispatch])
 
-
     return (
         <div>
             <div>
                 {log && loggedin}
             </div>
             <div>
-                <div onClick={(e) => history.push(`/create-question`)}>
-                    <input type='text' placeholder='What do you want to ask?' />
-                    <div>Ask icon</div>
-                </div>
+                <CreateSplashQuestionFormModal />
             </div>
             <div>
                 {questions?.map(question => (
