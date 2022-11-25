@@ -7,6 +7,7 @@ import { getAllReviews } from '../../store/answers'
 function QuestionDetail({ question }) {
     const dispatch = useDispatch()
     const answers = useSelector(state => state.answers.Answers)
+    const history = useHistory()
 
     const [users, setUsers] = useState([]);
 
@@ -21,11 +22,9 @@ function QuestionDetail({ question }) {
 
     const user = users?.filter(user => user?.id == question.user_id)[0]
 
-    const [com, setCom] = useState(false)
     const revealcomms = (e) => {
         e.preventDefault()
-        setCom(true)
-        dispatch(getAllReviews(question.id))
+        history.push(`/question/${question.id}`)
     }
 
     return (
@@ -38,12 +37,9 @@ function QuestionDetail({ question }) {
             </div>
             <div>{user?.first_name} {user?.last_name}</div>
             <div>{question.body}</div>
-            <button onClick={revealcomms}>comments</button>
-            {com && (
-                <div className='answerwrapper'>{answers?.map(answer => {
-                    <div key={answer.id}>{answer?.body}</div>
-                })}</div>
-            )}
+            <div onClick={revealcomms}>
+                <i class="fa-solid fa-comment"></i>
+            </div>
         </div>
     )
 }

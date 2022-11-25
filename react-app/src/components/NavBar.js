@@ -52,16 +52,15 @@ const NavBar = () => {
   }
   return (
     <nav>
-      <ul>
-        <li>
-          <NavLink to='/' exact={true} activeClassName='active'>
-            Home
-          </NavLink>
-        </li>
-        <li>
-          {userLinks}
-        </li>
-      </ul>
+      <div>
+        <NavLink to='/' exact={true} activeClassName='active'>
+          Home
+        </NavLink>
+      </div>
+      <div>
+        {userLinks}
+      </div>
+
     </nav>
   );
 }
