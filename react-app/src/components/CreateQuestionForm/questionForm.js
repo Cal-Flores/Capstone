@@ -28,10 +28,10 @@ function QuestionForm({ setShowModal }) {
     return (
         <form onSubmit={handleSubmit}>
             <div>
-                <input required type='text' placeholder='Question Title' value={title} onChange={(e) => setTitle(e.target.value)} />
+                <input required minlength='5' maxlength='100' type='text' placeholder='Question Title' value={title} onChange={(e) => setTitle(e.target.value)} />
             </div>
             <div>
-                <textarea required type='text' placeholder='Start your question with "What", "How", "Why", etc' value={body} onChange={(e) => setBody(e.target.value)} />
+                <textarea required minlength='5' maxlength='750' type='text' placeholder='Start your question with "What", "How", "Why", etc' value={body} onChange={(e) => setBody(e.target.value)} />
             </div>
             <div>
                 <button type='submit'>Add Question</button>

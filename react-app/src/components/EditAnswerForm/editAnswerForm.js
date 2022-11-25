@@ -30,7 +30,7 @@ function EditAnswerForm({ a, setShowModal }) {
     return (
         <form onSubmit={handleSub}>
             <div>
-                <input required type='text' placeholder='Add a comment...' value={body} onChange={(e) => setBody(e.target.value)} />
+                <input required minlength='2' maxlength='250' type='text' placeholder='Add a comment...' value={body} onChange={(e) => setBody(e.target.value)} />
             </div>
             <div>
                 <button type='submit'>Add Comment</button>
