@@ -1,6 +1,13 @@
-.answerwrapper {
-    background-color: black;
-    height: 200px;
-    width: 200px;
+.indqwrapper {
+    display: flex;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    color: aliceblue;
+    padding-bottom: 1500px;
+}
+
+
+p {
     color: white;
 }

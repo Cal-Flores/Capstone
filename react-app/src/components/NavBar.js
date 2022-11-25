@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import { Redirect, useHistory } from 'react-router-dom'
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
@@ -12,6 +13,7 @@ import './NavBar.css'
 
 const NavBar = () => {
   const dispatch = useDispatch()
+  const history = useHistory()
   const sessionUser = useSelector(state => state.session.user)
   const demoUser = () => {
     const obj = {
@@ -27,9 +29,9 @@ const NavBar = () => {
       <div className="userlinks2">
         <div>
           <div ClassName='myycontent'>
-            <NavLink to='/your-questions' exact={true} >
+            <a href='/your-questions' exact={true}>
               My Contents
-            </NavLink>
+            </a>
           </div>
         </div>
         <div className="addquestion">
@@ -56,9 +58,11 @@ const NavBar = () => {
   return (
     <nav className="navwrapper">
       <div className="fqlogo">
-        <NavLink to='/' exact={true} ClassName='fglogotext'>
-          Fourth Quorra
-        </NavLink>
+        <div onClick={(e) => history.push('/')} ClassName='fglogotext'>
+          <div className='fq'>
+            Fourth Quorra
+          </div>
+        </div>
       </div>
       <div className="userlinks">
         {userLinks}

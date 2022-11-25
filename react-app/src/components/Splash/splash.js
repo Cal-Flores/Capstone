@@ -34,7 +34,7 @@ function AllQuestions() {
                     <CreateSplashQuestionFormModal />
                 </div>
             }
-            <div>
+            <div className='indvcontainer'>
                 {questions?.map(question => (
                     <QuestionDetail key={question?.id} question={question} />
                 ))}

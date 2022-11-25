@@ -1,4 +1,6 @@
-.askqbox {
-    border: black;
-    border-radius: 10px;
+.indvcontainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

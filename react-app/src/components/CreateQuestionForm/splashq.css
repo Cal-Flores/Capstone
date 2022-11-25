@@ -10,7 +10,6 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    border-radius: 5%;
 }
 
 .askqfield {
@@ -41,7 +40,6 @@
 .askqcont {
     display: flex;
     flex-direction: column;
-    width: fit-content;
     margin-top: 15px;
 }
 

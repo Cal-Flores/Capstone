@@ -16,6 +16,7 @@ import QuestionForm from './components/CreateQuestionForm/questionForm';
 import EditQuestionForm from './components/EditQuestionForm/editQuestionForm';
 import EditAnswerForm from './components/EditAnswerForm/editAnswerForm';
 import RelatedQuestions from './components/RelatedQuestions/relatedQuestions';
+import './index.css'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -33,36 +34,39 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
-      <NavBar />
-      <Switch>
-        <Route path='/users' exact={true} >
-          <UsersList />
-        </Route>
-        <Route path='/users/:userId' exact={true} >
-          <User />
-        </Route>
-        <Route path='/' exact={true} >
-          < AllQuestions />
-        </Route>
-        <Route path='/question/:questionId' exact={true}>
-          < SingleQuestion />
-          < RelatedQuestions />
-        </Route>
-        <ProtectedRoute path='/your-questions' exact={true}>
-          < OwnerQuestions />
-        </ProtectedRoute>
-        <ProtectedRoute path='/create-question' exact={true}>
-          < QuestionForm />
-        </ProtectedRoute>
-        <ProtectedRoute path='/editQuestion/:questionId' exact={true}>
-          < EditQuestionForm />
-        </ProtectedRoute>
-        <ProtectedRoute path='/editAnswer/:answerId' exact={true}>
-          < EditAnswerForm />
-        </ProtectedRoute>
-      </Switch>
-    </BrowserRouter>
+    <div className='sitewide'>
+
+      <BrowserRouter>
+        <NavBar />
+        <Switch>
+          <Route path='/users' exact={true} >
+            <UsersList />
+          </Route>
+          <Route path='/users/:userId' exact={true} >
+            <User />
+          </Route>
+          <Route path='/' exact={true} >
+            < AllQuestions />
+          </Route>
+          <Route path='/question/:questionId' exact={true}>
+            < SingleQuestion />
+            < RelatedQuestions />
+          </Route>
+          <ProtectedRoute path='/your-questions' exact={true}>
+            < OwnerQuestions />
+          </ProtectedRoute>
+          <ProtectedRoute path='/create-question' exact={true}>
+            < QuestionForm />
+          </ProtectedRoute>
+          <ProtectedRoute path='/editQuestion/:questionId' exact={true}>
+            < EditQuestionForm />
+          </ProtectedRoute>
+          <ProtectedRoute path='/editAnswer/:answerId' exact={true}>
+            < EditAnswerForm />
+          </ProtectedRoute>
+        </Switch>
+      </BrowserRouter>
+    </div>
   );
 }
 

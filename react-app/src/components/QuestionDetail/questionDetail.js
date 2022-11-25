@@ -28,15 +28,15 @@ function QuestionDetail({ question }) {
     }
 
     return (
-        <div>
-            <h2>
-                <Link key={question.id} to={`/question/${question.id}`}>{question.title}</Link>
-            </h2>
+        <div className='indqwrapper'>
+            <div>
+                <Link id='sptitle' key={question.id} to={`/question/${question.id}`}>{question.title}</Link>
+            </div>
             <div>
                 <img src={user?.profile_pic} onError={(e) => { e.target.src = 'https://cdn-icons-png.flaticon.com/128/149/149071.png' }} style={{ width: '40px', height: '40px', borderRadius: '25px' }} />
             </div>
             <div>{user?.first_name} {user?.last_name}</div>
-            <div>{question.body}</div>
+            <p>{question.body}</p>
             <div onClick={revealcomms}>
                 <i class="fa-solid fa-comment"></i>
             </div>
