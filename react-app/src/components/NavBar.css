@@ -1,0 +1,43 @@
+.navwrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.fqlogo {
+    margin-left: 5%;
+    margin-right: 20px;
+    width: 100px;
+    color: red
+}
+
+.userlinks2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.myycontent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 200px;
+    color: red;
+    text-decoration: none;
+}
+
+.addquestion {
+    color: red;
+    border: none;
+}
+
+.fglogotext {
+    color: red;
+}

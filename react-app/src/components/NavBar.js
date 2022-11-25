@@ -7,6 +7,7 @@ import SignUpFormModal from "./SignupFormModal";
 import CreateQuestionFormModal from "./CreateQuestionForm/CreateQuestionModal";
 import ProfileButton from "./ProfileButton/profileButon";
 import { login } from "../store/session";
+import './NavBar.css'
 
 
 const NavBar = () => {
@@ -23,16 +24,18 @@ const NavBar = () => {
   let userLinks;
   if (sessionUser) {
     userLinks = (
-      <div>
+      <div className="userlinks2">
         <div>
-          <NavLink to='/your-questions' exact={true} activeClassName='active'>
-            My Contents
-          </NavLink>
+          <div ClassName='myycontent'>
+            <NavLink to='/your-questions' exact={true} >
+              My Contents
+            </NavLink>
+          </div>
         </div>
-        <div>
+        <div className="addquestion">
           <CreateQuestionFormModal />
         </div>
-        <div><ProfileButton /></div>
+        <div className="profileimg"><ProfileButton /></div>
       </div>
     )
   } else {
@@ -51,13 +54,13 @@ const NavBar = () => {
     )
   }
   return (
-    <nav>
-      <div>
-        <NavLink to='/' exact={true} activeClassName='active'>
-          Home
+    <nav className="navwrapper">
+      <div className="fqlogo">
+        <NavLink to='/' exact={true} ClassName='fglogotext'>
+          Fourth Quorra
         </NavLink>
       </div>
-      <div>
+      <div className="userlinks">
         {userLinks}
       </div>
 

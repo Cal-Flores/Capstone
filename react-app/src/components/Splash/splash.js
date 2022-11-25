@@ -29,11 +29,7 @@ function AllQuestions() {
 
     return (
         <div>
-            <div>
-                {log && loggedin}
-            </div>
             {user &&
-
                 <div>
                     <CreateSplashQuestionFormModal />
                 </div>
