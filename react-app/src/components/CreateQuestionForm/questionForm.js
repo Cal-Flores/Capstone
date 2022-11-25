@@ -14,6 +14,7 @@ function QuestionForm({ setShowModal }) {
     const handleSubmit = (e) => {
         e.preventDefault()
 
+
         let newQuestion = {
             title,
             body,
