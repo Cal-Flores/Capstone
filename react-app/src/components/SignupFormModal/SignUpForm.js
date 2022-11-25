@@ -30,7 +30,13 @@ const SignUpForm = () => {
       if (data) {
         setErrors(data)
       }
+    } else {
+      setErrors(['Password and Repeat Password must match'])
     }
+
+    // if (!profile_pic.includes('.png') || !profile_pic.includes('.jpg') || !profile_pic.includes('.jpeg') || !profile_pic.includes('.gif')) {
+    //   setErrors([])
+    // }
   };
 
   const updateUsername = (e) => {
@@ -53,16 +59,22 @@ const SignUpForm = () => {
     return <Redirect to='/' />;
   }
 
+
   return (
     <form onSubmit={onSignUp}>
+      <div>Welcome to Fourth Quorra!</div>
+      <div>Sign up</div>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
       <div>
-        <label>User Name</label>
         <input
+          placeholder='User Name'
+          required
+          minlength='4'
+          maxlength='15'
           type='text'
           name='username'
           onChange={updateUsername}
@@ -70,17 +82,21 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>Email</label>
         <input
-          type='text'
+          placeholder='Email'
+          required
+          type='email'
           name='email'
           onChange={updateEmail}
           value={email}
         ></input>
       </div>
       <div>
-        <label>First Name</label>
         <input
+          placeholder='First Name'
+          required
+          minlength='2'
+          maxlength='15'
           type='text'
           name='firstname'
           onChange={(e) => setFirstName(e.target.value)}
@@ -88,8 +104,11 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>Last Name</label>
         <input
+          placeholder='Last Name'
+          required
+          minlength='2'
+          maxlength='15'
           type='text'
           name='lastname'
           onChange={(e) => setLastName(e.target.value)}
@@ -97,8 +116,8 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>Profile Image</label>
         <input
+          placeholder='Profile Picture (optional)'
           type='text'
           name='profilepic'
           onChange={(e) => setProfilePic(e.target.value)}
@@ -106,22 +125,27 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>Password</label>
         <input
+          placeholder='Password'
           type='password'
           name='password'
+          required
+          minlength='6'
+          maxlength='20'
           onChange={updatePassword}
           value={password}
         ></input>
       </div>
       <div>
-        <label>Repeat Password</label>
         <input
+          placeholder='Repeat Password'
+          required
+          minlength='6'
+          maxlength='20'
           type='password'
           name='repeat_password'
           onChange={updateRepeatPassword}
           value={repeatPassword}
-          required={true}
         ></input>
       </div>
       <button type='submit'>Sign Up</button>

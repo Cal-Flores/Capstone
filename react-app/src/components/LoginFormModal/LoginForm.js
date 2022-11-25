@@ -15,7 +15,7 @@ const LoginForm = () => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
     if (data) {
-      setErrors(data);
+      setErrors(["The provided credentials were invalid"]);
     }
   };
 
@@ -33,6 +33,8 @@ const LoginForm = () => {
 
   return (
     <form onSubmit={onLogin}>
+      <div className='page-header'> Welcome to YSTE!</div>
+      <div className='login'>Log in</div>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
@@ -42,7 +44,7 @@ const LoginForm = () => {
         <label htmlFor='email'>Email</label>
         <input
           name='email'
-          type='text'
+          type='email'
           placeholder='Email'
           value={email}
           onChange={updateEmail}
@@ -51,6 +53,9 @@ const LoginForm = () => {
       <div>
         <label htmlFor='password'>Password</label>
         <input
+          required
+          minlength='6'
+          maxlength='20'
           name='password'
           type='password'
           placeholder='Password'
