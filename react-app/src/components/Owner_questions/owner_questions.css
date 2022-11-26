@@ -1,0 +1,13 @@
+.yccontent {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.ycheader {
+    display: flex;
+    justify-content: center;
+    color: whitesmoke;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}

@@ -4,6 +4,7 @@ import { Link, Redirect, useHistory, useParams } from 'react-router-dom'
 import { deleteAAnswer, getUserAnswers } from '../../store/answers'
 import EditAnswerFormModal from '../EditAnswerForm/EditAnswerModal'
 import EditQuestionFormModal from '../EditQuestionForm/editQuestionModal'
+import './owner_answer.css'
 
 function OwnerAnswerCard({ answer }) {
     const history = useHistory()
@@ -19,12 +20,17 @@ function OwnerAnswerCard({ answer }) {
         dispatch(deleteAAnswer(answer.id)).then(() => dispatch(getUserAnswers()))
     }
     return (
-        <div>
-            <div onClick={redirectme}>Answer</div>
-            <div>{answer.body}</div>
-            <  EditAnswerFormModal a={answer} />
-            <button onClick={deletebtn}>Delete</button>
-            <div>------------------------------------</div>
+        <div className='ancontainer'>
+            <div className='anwrapper'>
+                <div className='ancol'>
+                    <div className='ananswer' onClick={redirectme}>Answer</div>
+                    <div className='anbody'>{answer.body}</div>
+                    <div className='edabtn'>
+                        <EditAnswerFormModal a={answer} />
+                        <button className='yabtn' onClick={deletebtn}>Delete</button>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

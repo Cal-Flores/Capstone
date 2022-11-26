@@ -15,6 +15,16 @@ function EditQuestionForm({ q, setShowModal }) {
     const [title, setTitle] = useState(q?.title)
     const [body, setBody] = useState(q?.body)
     const [image, setImage] = useState(q?.image)
+    const [error, setError] = useState([])
+
+    useEffect(() => {
+        let err = []
+
+        if (title.length >= 100 || title.length < 4) err.push('Title must be between 4 and 100 characters')
+        if (body.length >= 750 || body.length < 6) err.push('Body must be between 5 and 2000 characters')
+        setError(err)
+
+    }, [body, title])
 
 
     const handleSubmit = async (e) => {
@@ -33,14 +43,20 @@ function EditQuestionForm({ q, setShowModal }) {
 
     return (
         <form onSubmit={handleSubmit}>
+            {error.length && (
+                <ul className="error-map">{error.map((err, i) => (
+                    <li key={i}>{err}</li>
+                ))}
+                </ul>
+            )}
             <div>
-                <input required minlength='5' maxlength='100' type='text' placeholder='Question Title' value={title} onChange={(e) => setTitle(e.target.value)} />
+                <input required minlength='4' maxlength='101' type='text' placeholder='Question Title' value={title} onChange={(e) => setTitle(e.target.value)} />
             </div>
             <div>
-                <textarea required minlength='5' maxlength='750' type='text' placeholder='Start your question with "What", "How", "Why", etc' value={body} onChange={(e) => setBody(e.target.value)} />
+                <textarea required minlength='4' maxlength='751' type='text' placeholder='Start your question with "What", "How", "Why", etc' value={body} onChange={(e) => setBody(e.target.value)} />
             </div>
             <div>
-                <button type='submit'>Add Question</button>
+                <button disabled={!!error.length} type='submit'>Add Question</button>
             </div>
         </form>
     )

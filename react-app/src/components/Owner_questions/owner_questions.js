@@ -5,6 +5,7 @@ import { getUserAnswers } from '../../store/answers'
 import { getUserQuestions } from '../../store/questions'
 import OwnerQuestionCard from '../Your-Questions/your-questions'
 import OwnerAnswerCard from '../Owner_answer_card/owner_answer_card'
+import './owner_questions.css'
 
 function OwnerQuestions() {
     const dispatch = useDispatch()
@@ -18,7 +19,9 @@ function OwnerQuestions() {
     return (
         <div>
             <div>
-                <h1>Your Content</h1>
+                <div className='yccontainer'>
+                    <h1 className='ycheader'>Your Content</h1>
+                </div>
                 {questions?.map(question => (
                     <div>
                         <OwnerQuestionCard question={question} />

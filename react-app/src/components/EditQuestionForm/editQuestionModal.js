@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import EditQuestionForm from './editQuestionForm';
+import '../Your-Questions/your-questions.css'
 
 
 
@@ -9,7 +10,7 @@ function EditQuestionFormModal({ q }) {
 
     return (
         <>
-            <button onClick={() => setShowModal(true)}>Edit</button>
+            <button className='yqubtn' onClick={() => setShowModal(true)}>Edit</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <EditQuestionForm setShowModal={setShowModal} q={q} />
