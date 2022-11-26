@@ -60,7 +60,7 @@ function EditQuestionForm({ q, setShowModal }) {
                     </div>
                     <div className='cancelmodaledit'>
                         <button className='embtn' disabled={!!error.length} type='submit'>Add Question</button>
-                        <div onClick={() => setShowModal(false)} className='canceltxt'>Cancel</div>
+                        <div onClick={() => setShowModal(false)} className='canceltxtq'>Cancel</div>
                     </div>
                 </div>
             </div>
