@@ -4,3 +4,8 @@
     flex-direction: column;
     justify-content: center;
 }
+
+.indvwrap {
+    display: flex;
+    flex-direction: column;
+}

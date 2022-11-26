@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, Redirect, useHistory, useParams } from 'react-router-dom'
 import { getAllQuestions, getOneProduct } from '../../store/questions'
+import './onePageAnswers.css'
 
 
 function OnePageAnswers({ answer }) {

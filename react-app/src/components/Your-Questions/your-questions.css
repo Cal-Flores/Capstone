@@ -13,7 +13,7 @@
 
 .quwrapper {
     width: 70%;
-    min-height: 200px;
+    min-height: 00px;
     display: flex;
     flex-direction: row;
 }

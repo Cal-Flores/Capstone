@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, Redirect, useHistory } from 'react-router-dom'
 import { Dispatch } from 'react'
 import { getAllReviews } from '../../store/answers'
+import './questionDetail.css'
 
 function QuestionDetail({ question }) {
     const dispatch = useDispatch()
@@ -28,16 +29,18 @@ function QuestionDetail({ question }) {
     }
 
     return (
-        <div className='indqwrapper'>
-            <div>
-                <Link id='sptitle' key={question.id} to={`/question/${question.id}`}>{question.title}</Link>
+        <div className='indqcont'>
+            <div className='indqwrapper'>
+                <h2>
+                    <Link className='splashtitle' id='sptitle' key={question.id} to={`/question/${question.id}`}>{question.title}</Link>
+                </h2>
+                <div>
+                    <img src={user?.profile_pic} onError={(e) => { e.target.src = 'https://cdn-icons-png.flaticon.com/128/149/149071.png' }} style={{ width: '40px', height: '40px', borderRadius: '25px' }} />
+                </div>
+                <div className='splashname'>{user?.first_name} {user?.last_name}</div>
+                <p className='splashpara'>{question.body}</p>
             </div>
-            <div>
-                <img src={user?.profile_pic} onError={(e) => { e.target.src = 'https://cdn-icons-png.flaticon.com/128/149/149071.png' }} style={{ width: '40px', height: '40px', borderRadius: '25px' }} />
-            </div>
-            <div>{user?.first_name} {user?.last_name}</div>
-            <p>{question.body}</p>
-            <div onClick={revealcomms}>
+            <div className='comfavi' onClick={revealcomms}>
                 <i class="fa-solid fa-comment"></i>
             </div>
         </div>

@@ -1,13 +1,53 @@
-.indqwrapper {
+.indqcont {
+    background-color: #232222;
+    margin: auto;
+    width: 65%;
+    aspect-ratio: 6/1;
     display: flex;
-    width: 100px;
-    height: 100px;
-    overflow: hidden;
-    color: aliceblue;
-    padding-bottom: 1500px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1%;
+    border-radius: 5px;
 }
 
+.indqwrapper {
+    width: 70%;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+}
 
-p {
-    color: white;
+.splashtitle {
+    color: whitesmoke;
+    text-decoration: none;
+    padding-bottom: 5px;
+}
+
+.splashpara {
+    color: whitesmoke;
+    padding-top: 5px;
+    font-size: 16px;
+    line-height: 25px;
+}
+
+.splashname {
+    color: gray;
+}
+
+.comfavi {
+    color: whitesmoke;
+    margin-right: 65%;
+    padding: 10px;
+}
+
+.splashtitle:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+}
+
+.comfavi:hover {
+    background-color: #393838;
+    padding: 10px;
+    border-radius: 20px;
 }
