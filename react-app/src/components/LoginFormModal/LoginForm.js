@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 import SignUpFormModal from '../SignupFormModal';
+import './login.css'
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -33,36 +34,42 @@ const LoginForm = () => {
 
   return (
     <form onSubmit={onLogin}>
-      <div className='page-header'> Welcome to YSTE!</div>
-      <div className='login'>Log in</div>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
-      <div>
-        <label htmlFor='email'>Email</label>
-        <input
-          name='email'
-          type='email'
-          placeholder='Email'
-          value={email}
-          onChange={updateEmail}
-        />
-      </div>
-      <div>
-        <label htmlFor='password'>Password</label>
-        <input
-          required
-          minlength='6'
-          maxlength='20'
-          name='password'
-          type='password'
-          placeholder='Password'
-          value={password}
-          onChange={updatePassword}
-        />
-        <button type='submit'>Login</button>
+      <div className='logcontainer'>
+        <div className='logwrapper'>
+          <div className='welcomwrapper'>
+            <div className='page-header'> Welcome to YSTE!</div>
+            <div className='login'>Log in</div>
+          </div>
+          <div>
+            {errors.map((error, ind) => (
+              <ul className='logerr' key={ind}>{error}</ul>
+            ))}
+          </div>
+          <div className='logdiv'>
+            <input
+              className='logput'
+              name='email'
+              type='email'
+              placeholder='Email'
+              value={email}
+              onChange={updateEmail}
+            />
+          </div>
+          <div className='logdiv'>
+            <input
+              className='logput'
+              required
+              minlength='6'
+              maxlength='20'
+              name='password'
+              type='password'
+              placeholder='Password'
+              value={password}
+              onChange={updatePassword}
+            />
+            <button className='logbtn' type='submit'>Login</button>
+          </div>
+        </div>
       </div>
     </form>
   );

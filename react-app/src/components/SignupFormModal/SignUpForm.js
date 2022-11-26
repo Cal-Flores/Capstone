@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import './signup.css'
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -62,93 +63,108 @@ const SignUpForm = () => {
 
   return (
     <form onSubmit={onSignUp}>
-      <div>Welcome to Fourth Quorra!</div>
-      <div>Sign up</div>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
+      <div className='signcontainer'>
+        <div className='signwrapper'>
+          <div className='signwelcomewrap'>
+            <div className='signtitle'>Welcome to Fourth Quorra!</div>
+            <div className='signtxt'>Sign up</div>
+          </div>
+          <div>
+            {errors.map((error, ind) => (
+              <div className='signerr' key={ind}>{error}</div>
+            ))}
+          </div>
+          <div className='signdiv'>
+            <input
+              className='signput'
+              placeholder='User Name'
+              required
+              minlength='4'
+              maxlength='15'
+              type='text'
+              name='username'
+              onChange={updateUsername}
+              value={username}
+            ></input>
+          </div>
+          <div className='signdiv'>
+            <input
+              className='signput'
+              placeholder='Email'
+              required
+              type='email'
+              name='email'
+              minlength='4'
+              maxlength='35'
+              onChange={updateEmail}
+              value={email}
+            ></input>
+          </div>
+          <div className='signdiv'>
+            <input
+              className='signput'
+              placeholder='First Name'
+              required
+              minlength='2'
+              maxlength='15'
+              type='text'
+              name='firstname'
+              onChange={(e) => setFirstName(e.target.value)}
+              value={first_name}
+            ></input>
+          </div>
+          <div className='signdiv'>
+            <input
+              className='signput'
+              placeholder='Last Name'
+              required
+              minlength='2'
+              maxlength='15'
+              type='text'
+              name='lastname'
+              onChange={(e) => setLastName(e.target.value)}
+              value={last_name}
+            ></input>
+          </div>
+          <div className='signdiv'>
+            <input
+              className='signput'
+              placeholder='Profile Picture (optional)'
+              type='text'
+              name='profilepic'
+              onChange={(e) => setProfilePic(e.target.value)}
+              value={profile_pic}
+            ></input>
+          </div>
+          <div className='signdiv'>
+            <input
+              className='signput'
+              placeholder='Password'
+              type='password'
+              name='password'
+              required
+              minlength='6'
+              maxlength='20'
+              onChange={updatePassword}
+              value={password}
+            ></input>
+          </div>
+          <div className='signdiv'>
+            <input
+              className='signput'
+              placeholder='Repeat Password'
+              required
+              minlength='6'
+              maxlength='20'
+              type='password'
+              name='repeat_password'
+              onChange={updateRepeatPassword}
+              value={repeatPassword}
+            ></input>
+          </div>
+          <button className='signbtn' type='submit'>Sign Up</button>
+        </div>
       </div>
-      <div>
-        <input
-          placeholder='User Name'
-          required
-          minlength='4'
-          maxlength='15'
-          type='text'
-          name='username'
-          onChange={updateUsername}
-          value={username}
-        ></input>
-      </div>
-      <div>
-        <input
-          placeholder='Email'
-          required
-          type='email'
-          name='email'
-          onChange={updateEmail}
-          value={email}
-        ></input>
-      </div>
-      <div>
-        <input
-          placeholder='First Name'
-          required
-          minlength='2'
-          maxlength='15'
-          type='text'
-          name='firstname'
-          onChange={(e) => setFirstName(e.target.value)}
-          value={first_name}
-        ></input>
-      </div>
-      <div>
-        <input
-          placeholder='Last Name'
-          required
-          minlength='2'
-          maxlength='15'
-          type='text'
-          name='lastname'
-          onChange={(e) => setLastName(e.target.value)}
-          value={last_name}
-        ></input>
-      </div>
-      <div>
-        <input
-          placeholder='Profile Picture (optional)'
-          type='text'
-          name='profilepic'
-          onChange={(e) => setProfilePic(e.target.value)}
-          value={profile_pic}
-        ></input>
-      </div>
-      <div>
-        <input
-          placeholder='Password'
-          type='password'
-          name='password'
-          required
-          minlength='6'
-          maxlength='20'
-          onChange={updatePassword}
-          value={password}
-        ></input>
-      </div>
-      <div>
-        <input
-          placeholder='Repeat Password'
-          required
-          minlength='6'
-          maxlength='20'
-          type='password'
-          name='repeat_password'
-          onChange={updateRepeatPassword}
-          value={repeatPassword}
-        ></input>
-      </div>
-      <button type='submit'>Sign Up</button>
     </form>
   );
 };

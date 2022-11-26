@@ -1,0 +1,83 @@
+.logcontainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-end;
+    align-items: flex-start;
+    /* margin: 50px; */
+    padding-left: 250px;
+    padding-right: 250px;
+    background-color: #171616;
+    padding: 15px;
+    margin: 0;
+}
+
+.logwrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20%;
+    /* padding: 20px; */
+}
+
+.welcomwrapper {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid;
+    border-radius: 2px;
+    margin-bottom: 15px;
+    justify-content: center;
+    width: 100%;
+}
+
+.logdiv {
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.logput {
+    width: 100%;
+    height: 50px;
+    margin-top: 15px;
+    border: none;
+    border-bottom: 1px solid rgb(174, 170, 170);
+    padding: 5px 10px;
+    outline: none;
+    font-size: 16px;
+    resize: both;
+    background-color: #171616;
+    color: whitesmoke;
+}
+
+.logbtn {
+    border: none;
+    height: 30px;
+    width: 120px;
+    background-color: #4664b7;
+    border-radius: 30px;
+    color: whitesmoke;
+    margin-top: 15px;
+}
+
+.logbtn:hover {
+    background-color: #2754cf;
+    cursor: pointer;
+}
+
+.page-header {
+    color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.login {
+    color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.logerr {
+    color: rgb(148, 31, 31);
+}
