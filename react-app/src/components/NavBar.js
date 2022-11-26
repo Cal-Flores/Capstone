@@ -56,16 +56,18 @@ const NavBar = () => {
     )
   }
   return (
-    <nav className="navwrapper">
-      <div className="fqlogo">
-        <div onClick={(e) => history.push('/')} ClassName='fglogotext'>
-          <div className='fq'>
-            Fourth Quorra
+    <nav className="navhead">
+      <div className="navwrapper">
+        <div className="fqlogo">
+          <div onClick={(e) => history.push('/')} ClassName='fglogotext'>
+            <div className='fq'>
+              Fourth Quorra
+            </div>
           </div>
         </div>
-      </div>
-      <div className="userlinks">
-        {userLinks}
+        <div className="userlinks">
+          {userLinks}
+        </div>
       </div>
 
     </nav>
