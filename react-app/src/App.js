@@ -17,6 +17,7 @@ import EditQuestionForm from './components/EditQuestionForm/editQuestionForm';
 import EditAnswerForm from './components/EditAnswerForm/editAnswerForm';
 import RelatedQuestions from './components/RelatedQuestions/relatedQuestions';
 import './index.css'
+import LoginForm from './components/LoginFormModal/LoginForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -39,6 +40,9 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Switch>
+          <Route path='/login'>
+            <LoginForm />
+          </Route>
           <Route path='/users' exact={true} >
             <UsersList />
           </Route>
@@ -48,10 +52,10 @@ function App() {
           <Route path='/' exact={true} >
             < AllQuestions />
           </Route>
-          <Route path='/question/:questionId' exact={true}>
+          <ProtectedRoute path='/question/:questionId' exact={true}>
             < SingleQuestion />
             < RelatedQuestions />
-          </Route>
+          </ProtectedRoute>
           <ProtectedRoute path='/your-questions' exact={true}>
             < OwnerQuestions />
           </ProtectedRoute>
