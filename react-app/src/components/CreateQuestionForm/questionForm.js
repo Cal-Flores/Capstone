@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { createNewQuestion, getAllQuestions } from '../../store/questions'
+import './questionForm.css'
 
 
 function QuestionForm({ setShowModal }) {
@@ -35,20 +36,33 @@ function QuestionForm({ setShowModal }) {
 
     return (
         <form onSubmit={handleSubmit}>
-            {error.length && (
-                <ul className="error-map">{error.map((err, i) => (
-                    <li key={i}>{err}</li>
-                ))}
-                </ul>
-            )}
-            <div>
-                <input required minlength='4' maxlength='101' type='text' placeholder='Question Title' value={title} onChange={(e) => setTitle(e.target.value)} />
-            </div>
-            <div>
-                <textarea required minlength='5' maxlength='751' type='text' placeholder='Start your question with "What", "How", "Why", etc' value={body} onChange={(e) => setBody(e.target.value)} />
-            </div>
-            <div>
-                <button disabled={!!error.length} type='submit'>Add Question</button>
+            <div className='qumodalcontainer'>
+                {error.length && (
+                    <ul className="error-map">{error.map((err, i) => (
+                        <li key={i}>{err}</li>
+                    ))}
+                    </ul>
+                )}
+                <div className='qmodalwrapper'>
+                    <div className='tipswrap'>
+                        Tips on getting good answers quickly
+                        <ul className='tipslist'>
+                            <li>Make sure yout question has not been asked already</li>
+                            <li>Keep your question short and to the point</li>
+                            <li>Double-check grammar and spelling</li>
+                        </ul>
+                    </div>
+                    <div className='qdiv'>
+                        <input className='q1input' required minlength='4' maxlength='101' type='text' placeholder='Question Title' value={title} onChange={(e) => setTitle(e.target.value)} />
+                    </div>
+                    <div className='qdiv'>
+
+                        <textarea contendable className='q2input' required minlength='5' maxlength='751' type='text' placeholder='Start your question with "What", "How", "Why", etc' value={body} onChange={(e) => setBody(e.target.value)} />
+                    </div>
+                    <div>
+                        <button disabled={!!error.length} type='submit'>Add Question</button>
+                    </div>
+                </div>
             </div>
         </form>
     )
