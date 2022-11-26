@@ -1,0 +1,89 @@
+.qumodalcontaineredit {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding-left: 250px;
+    padding-right: 250px;
+    background-color: #171616;
+    padding: 15px;
+    margin: 0;
+}
+
+.qmodalwrapperedit {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20%;
+    /* padding: 20px; */
+}
+
+.error-mapedit {
+    padding-bottom: 10px;
+    color: rgb(148, 31, 31);
+}
+
+.e1input {
+    width: 100%;
+    height: 20px;
+    margin-top: 15px;
+    border: none;
+    border-bottom: .5px solid rgb(174, 170, 170);
+    padding: 5px 10px;
+    outline: none;
+    color: whitesmoke;
+    background-color: #171616;
+    font-size: 14px;
+
+}
+
+.e2input {
+    width: 100%;
+    height: 400px;
+    margin-top: 15px;
+    border: none;
+    border-bottom: 1px solid rgb(174, 170, 170);
+    padding: 5px 10px;
+    outline: none;
+    font-size: 16px;
+    resize: both;
+    background-color: #171616;
+    color: whitesmoke;
+}
+
+.cancelmodaledit {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: baseline;
+}
+
+.embtn {
+    border: none;
+    height: 30px;
+    width: 120px;
+    background-color: #4664b7;
+    border-radius: 30px;
+    color: whitesmoke;
+    margin-top: 15px;
+}
+
+.canceltxtq {
+    margin-left: 15px;
+    font-size: 18px;
+    color: rgb(174, 170, 170);
+    cursor: pointer;
+    padding: 10px;
+}
+
+.embtn:hover {
+    background-color: #2754cf;
+    cursor: pointer;
+}
+
+.canceltxtq:hover {
+    background-color: #272626;
+    padding: 10px;
+    border-radius: 20px;
+}

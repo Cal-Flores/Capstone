@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom'
 import { getAllQuestions, getUserQuestions, updateQuestion } from '../../store/questions'
+import './editQuestionForm.css'
 
 
 
@@ -43,20 +44,25 @@ function EditQuestionForm({ q, setShowModal }) {
 
     return (
         <form onSubmit={handleSubmit}>
-            {error.length && (
-                <ul className="error-map">{error.map((err, i) => (
-                    <li key={i}>{err}</li>
-                ))}
-                </ul>
-            )}
-            <div>
-                <input required minlength='4' maxlength='101' type='text' placeholder='Question Title' value={title} onChange={(e) => setTitle(e.target.value)} />
-            </div>
-            <div>
-                <textarea required minlength='4' maxlength='751' type='text' placeholder='Start your question with "What", "How", "Why", etc' value={body} onChange={(e) => setBody(e.target.value)} />
-            </div>
-            <div>
-                <button disabled={!!error.length} type='submit'>Add Question</button>
+            <div className='qumodalcontaineredit'>
+                {error.length && (
+                    <ul className="error-mapedit">{error.map((err, i) => (
+                        <li key={i}>{err}</li>
+                    ))}
+                    </ul>
+                )}
+                <div className='qmodalwrapperedit' >
+                    <div className='ediv'>
+                        <input required className='e1input' minlength='4' maxlength='101' type='text' placeholder='Question Title' value={title} onChange={(e) => setTitle(e.target.value)} />
+                    </div>
+                    <div className='ediv'>
+                        <textarea className='e2input' required minlength='4' maxlength='751' type='text' placeholder='Start your question with "What", "How", "Why", etc' value={body} onChange={(e) => setBody(e.target.value)} />
+                    </div>
+                    <div className='cancelmodaledit'>
+                        <button className='embtn' disabled={!!error.length} type='submit'>Add Question</button>
+                        <div onClick={() => setShowModal(false)} className='canceltxt'>Cancel</div>
+                    </div>
+                </div>
             </div>
         </form>
     )

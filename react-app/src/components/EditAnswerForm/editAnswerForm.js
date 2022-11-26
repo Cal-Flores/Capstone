@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom'
 import { getUserAnswers, updateAnswer } from '../../store/answers'
+import './editAnswerForm.css'
 
 
 function EditAnswerForm({ a, setShowModal }) {
@@ -13,6 +14,15 @@ function EditAnswerForm({ a, setShowModal }) {
     const answer = answers?.filter(answer => answer?.id == answerId)[0]
     const [body, setBody] = useState(a?.body)
     const [image, setImage] = useState(a?.image)
+    const [error, setError] = useState([])
+
+    useEffect(() => {
+        let err = []
+
+        if (body.length >= 100 || body.length < 2) err.push('Answer must be between 4 and 100 characters')
+        setError(err)
+
+    }, [body])
 
 
     const handleSub = async (e) => {
@@ -29,11 +39,22 @@ function EditAnswerForm({ a, setShowModal }) {
     }
     return (
         <form onSubmit={handleSub}>
-            <div>
-                <input required minlength='2' maxlength='250' type='text' placeholder='Add a comment...' value={body} onChange={(e) => setBody(e.target.value)} />
-            </div>
-            <div>
-                <button type='submit'>Add Comment</button>
+            <div className='aumodalcontaineredit'>
+                {error.length && (
+                    <ul className="error-mapans">{error.map((err, i) => (
+                        <li key={i}>{err}</li>
+                    ))}
+                    </ul>
+                )}
+                <div className='amodalwrapperedit'>
+                    <div className='ansdiv'>
+                        <textarea className='ansinput' required minlength='2' maxlength='250' type='text' placeholder='Add a comment...' value={body} onChange={(e) => setBody(e.target.value)} />
+                    </div>
+                    <div className='cancelmodalans'>
+                        <button className='ansbtn' type='submit' disabled={!!error.length}>Add Comment</button>
+                        <div onClick={() => setShowModal(false)} className='canceltxtans'>Cancel</div>
+                    </div>
+                </div>
             </div>
         </form>
     )
