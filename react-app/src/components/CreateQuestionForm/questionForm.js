@@ -59,8 +59,11 @@ function QuestionForm({ setShowModal }) {
 
                         <textarea contendable className='q2input' required minlength='5' maxlength='751' type='text' placeholder='Start your question with "What", "How", "Why", etc' value={body} onChange={(e) => setBody(e.target.value)} />
                     </div>
-                    <div>
-                        <button disabled={!!error.length} type='submit'>Add Question</button>
+                    <div className='cancelmodal'>
+                        <div>
+                            <button className='qmbtn' disabled={!!error.length} type='submit'>Add Question</button>
+                        </div>
+                        <div onClick={() => setShowModal(false)} className='canceltxt'>Cancel</div>
                     </div>
                 </div>
             </div>

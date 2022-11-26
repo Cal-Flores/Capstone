@@ -6,8 +6,8 @@
     justify-content: flex-end;
     align-items: flex-start;
     /* margin: 50px; */
-    margin-left: 120px;
-    margin-right: 120px;
+    padding-left: 250px;
+    padding-right: 250px;
     background-color: #171616;
     padding: 15px;
     margin: 0;
@@ -76,4 +76,41 @@
     color: #3167fc;
     /* background-color: #5c7cd2; */
     padding: 10px;
+    border: solid #3167fc;
+}
+
+.qmbtn {
+    border: none;
+    height: 30px;
+    width: 120px;
+    background-color: #3167fc;
+    border-radius: 30px;
+    color: whitesmoke;
+    margin-top: 15px;
+}
+
+.qmbtn:hover {
+    background-color: #2754cf;
+    cursor: pointer;
+}
+
+.cancelmodal {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: baseline;
+}
+
+.canceltxt {
+    margin-left: 15px;
+    font-size: 18px;
+    color: rgb(174, 170, 170);
+    cursor: pointer;
+    padding: 10px;
+}
+
+.canceltxt:hover {
+    background-color: #272626;
+    padding: 10px;
+    border-radius: 20px;
 }
