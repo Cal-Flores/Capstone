@@ -37,17 +37,19 @@ const NavBar = () => {
     )
   } else {
     userLinks = (
-      <>
-        <div>
-          <LoginFormModal />
+      <div className="outcontainer">
+        <div className="outwrapper">
+          <div>
+            <LoginFormModal />
+          </div>
+          <div>
+            <SignUpFormModal />
+          </div>
+          <button className="outbtn" onClick={demoUser}>
+            Demo User
+          </button>
         </div>
-        <div>
-          <SignUpFormModal />
-        </div>
-        <button onClick={demoUser}>
-          Demo User
-        </button>
-      </>
+      </div>
     )
   }
   return (

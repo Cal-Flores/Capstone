@@ -34,6 +34,9 @@ function AllQuestions() {
                     <CreateSplashQuestionFormModal />
                 </div>
             }
+            {!user &&
+                <div className='suggest'> Log in to Interact!</div>
+            }
             <div className='indvcontainer'>
                 <div className='indvwrap'>
                     {questions?.map(question => (

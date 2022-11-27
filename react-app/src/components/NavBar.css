@@ -71,6 +71,9 @@
 
 .profileimg {
     margin-right: 20%;
+    /* border: 1px solid #232222;
+    border-radius: 20px; */
+    cursor: pointer;
 }
 
 .hi {
@@ -94,3 +97,40 @@
 .yourcontent:hover {
     text-decoration: underline;
 }
+
+.outcontainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.outwrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.outbtn {
+    border: none;
+    margin-right: 50px;
+    height: 25px;
+    width: 90px;
+    border-radius: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: rgb(245, 41, 54);
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+.outbtn:hover {
+    background-color: #323131;
+}
+
+/*
+.profileimg:hover {
+    border: 1px solid rgb(115, 114, 114);
+    border-radius: 20px;
+    cursor: pointer;
+} */
