@@ -4,12 +4,13 @@ import { Link, Redirect, useHistory, useParams } from 'react-router-dom'
 import OnePageAnswers from '../OnePageAnswers/onePageAnswers'
 import { createNewAnswer, getAllReviews } from '../../store/answers'
 import { getAllQuestions, getOneProduct, getRelatedQuestions } from '../../store/questions'
+import './oneQuestion.css'
 
 function SingleQuestion() {
     const dispatch = useDispatch()
     const { questionId } = useParams()
     const question = useSelector(state => state.questions)
-    console.log('single question ==', question)
+    const user = useSelector(state => state.session.user)
     const answers = useSelector(state => state.answers.Answers)
     const [body, setBody] = useState('')
     const [image, setImage] = useState('')
@@ -35,26 +36,32 @@ function SingleQuestion() {
     }
 
     return (
-        <div>
-            <div>
-                <h1>{question.title}</h1>
-                <div>{question.body}</div>
-                <form onSubmit={handleSub}>
-                    <div>
-                        <input required minlength='2' maxlength='500' type='text' placeholder='Add a comment...' value={body} onChange={(e) => setBody(e.target.value)} />
+        <div className='onecontainer'>
+            <div className='onewrapper'>
+                <div className='onecont'>
+                    <div className='qadiv'>
+                        <h1>{question.title}</h1>
+                        <div>{question.body}</div>
+                        <form onSubmit={handleSub}>
+                            <div className='comboxcont'>
+                                <div className='comboxwrapper'>
+                                    <img src={user?.profile_pic} onError={(e) => { e.target.src = 'https://cdn-icons-png.flaticon.com/128/149/149071.png' }} style={{ width: '40px', height: '40px', borderRadius: '25px' }} />
+                                    <input className='comfield' required minlength='2' maxlength='500' type='text' placeholder='Add a comment...' value={body} onChange={(e) => setBody(e.target.value)} />
+                                </div>
+                            </div>
+                            <div>
+                                <button className='adcombtn' type='submit'>Add Comment</button>
+                            </div>
+                        </form>
                     </div>
-                    <div>
-                        <button type='submit'>Add Comment</button>
-                    </div>
-                </form>
-                <div>##########################</div>
-            </div>
-            <div>
-                {answers?.map(answer => (
-                    <div>
-                        <OnePageAnswers answer={answer} />
-                    </div>
-                ))}
+                </div>
+                <div>
+                    {answers?.map(answer => (
+                        <div>
+                            <OnePageAnswers answer={answer} />
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     )
