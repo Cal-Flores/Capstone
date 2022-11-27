@@ -27,13 +27,8 @@ const NavBar = () => {
   if (sessionUser) {
     userLinks = (
       <div className="userlinks2">
-        <div>
-          <div ClassName='myycontent'>
-            <a href='/your-questions' exact={true}>
-              My Contents
-            </a>
-          </div>
-        </div>
+
+        <div className="yourcontent" onClick={(e) => history.push('/your-contents')}>My Content</div>
         <div className="addquestion">
           <CreateQuestionFormModal />
         </div>
@@ -57,19 +52,18 @@ const NavBar = () => {
   }
   return (
     <nav className="navhead">
-      <div className="navwrapper">
-        <div className="fqlogo">
+      <div className="navcontainer">
+        <div className="navwrapper">
           <div onClick={(e) => history.push('/')} ClassName='fglogotext'>
-            <div className='fq'>
-              Fourth Quorra
+            <div
+              className='fq'> Fourth Quorra <span className="hi"><i class="fa-sharp fa-solid fa-house"></i> </span>
             </div>
           </div>
-        </div>
-        <div className="userlinks">
-          {userLinks}
+          <div className="userlinks">
+            {userLinks}
+          </div>
         </div>
       </div>
-
     </nav>
   );
 }

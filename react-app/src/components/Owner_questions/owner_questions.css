@@ -1,6 +1,7 @@
 .yccontent {
     display: flex;
     flex-direction: row;
+    margin-top: 130px;
 
 }
 
@@ -10,4 +11,5 @@
     color: whitesmoke;
     padding-top: 15px;
     padding-bottom: 15px;
+    margin-top: 50px;
 }

@@ -39,7 +39,7 @@ function EditQuestionForm({ q, setShowModal }) {
 
         dispatch(updateQuestion(newQuestion, q.id)).then(() => dispatch(getUserQuestions()))
         setShowModal(false)
-        return history.push('/your-questions')
+        return history.push('/your-contents')
     }
 
     return (

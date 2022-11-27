@@ -1,0 +1,12 @@
+.logoutnBtn {
+    height: 20px;
+    width: 70px;
+    color: whitesmoke;
+    background-color: #232222;
+    border: none;
+    cursor: pointer;
+}
+
+.logoutnBtn:hover {
+    color: rgb(245, 41, 54);
+}

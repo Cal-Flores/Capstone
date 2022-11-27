@@ -35,7 +35,7 @@ function EditAnswerForm({ a, setShowModal }) {
 
         dispatch(updateAnswer(newAnswer, a.id)).then(() => dispatch(getUserAnswers()))
         setShowModal(false)
-        history.push('/your-questions')
+        history.push('/your-contents')
     }
     return (
         <form onSubmit={handleSub}>

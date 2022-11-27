@@ -37,7 +37,7 @@ const LoginForm = () => {
       <div className='logcontainer'>
         <div className='logwrapper'>
           <div className='welcomwrapper'>
-            <div className='page-header'> Welcome to YSTE!</div>
+            <div className='page-header'> Welcome to Fourth Quorra!</div>
             <div className='login'>Log in</div>
           </div>
           <div>
