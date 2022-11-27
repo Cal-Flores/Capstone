@@ -54,7 +54,6 @@ function App() {
           </Route>
           <ProtectedRoute path='/question/:questionId' exact={true}>
             < SingleQuestion />
-            < RelatedQuestions />
           </ProtectedRoute>
           <ProtectedRoute path='/your-questions' exact={true}>
             < OwnerQuestions />

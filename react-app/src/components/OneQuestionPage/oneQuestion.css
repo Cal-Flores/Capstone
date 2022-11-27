@@ -1,14 +1,28 @@
+.oneholder {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
 .onecontainer {
     display: flex;
-    flex-direction: column;
-    width: 70%;
+    flex-direction: row;
+    width: 68%;
     /* border: 2px solid;
     border-color: grey; */
     margin-left: 5%;
     color: whitesmoke;
-    line-height: 25px;
     font-size: 16px;
     margin-top: 2%;
+    justify-content: space-between;
+}
+
+.onewrapper {
+    display: flex;
+    flex-direction: column;
+    /* padding: 5px; */
 }
 
 .onecont {
@@ -18,11 +32,6 @@
     border-radius: 5px;
 }
 
-.onewrapper {
-    display: flex;
-    flex-direction: column;
-    /* padding: 5px; */
-}
 
 .qadiv {
     display: flex;
@@ -66,4 +75,49 @@
 .adcombtn:hover {
     background-color: #2754cf;
     cursor: pointer;
+}
+
+.onetitle {
+    line-height: 40px;
+}
+
+.onepara {
+    line-height: 25px;
+}
+
+.rqcontainer {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+}
+
+
+.rqwrapper {
+    display: flex;
+    flex-direction: column;
+    color: aqua;
+    border: 2px solid;
+    border-color: grey;
+    width: 70%;
+    margin-left: 10%;
+    min-height: 400px;
+    justify-content: space-between;
+    padding: 5%;
+}
+
+.rqtitle {
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 18px;
+    border-bottom: 2px solid;
+    border-color: #302f2f;
+}
+
+.navrq {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.navrq:hover {
+    color: rgb(245, 41, 54);
 }

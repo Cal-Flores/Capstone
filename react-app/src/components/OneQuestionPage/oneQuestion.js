@@ -5,6 +5,7 @@ import OnePageAnswers from '../OnePageAnswers/onePageAnswers'
 import { createNewAnswer, getAllReviews } from '../../store/answers'
 import { getAllQuestions, getOneProduct, getRelatedQuestions } from '../../store/questions'
 import './oneQuestion.css'
+import RelatedQuestions from '../RelatedQuestions/relatedQuestions'
 
 function SingleQuestion() {
     const dispatch = useDispatch()
@@ -36,32 +37,37 @@ function SingleQuestion() {
     }
 
     return (
-        <div className='onecontainer'>
-            <div className='onewrapper'>
-                <div className='onecont'>
-                    <div className='qadiv'>
-                        <h1>{question.title}</h1>
-                        <div>{question.body}</div>
-                        <form onSubmit={handleSub}>
-                            <div className='comboxcont'>
-                                <div className='comboxwrapper'>
-                                    <img src={user?.profile_pic} onError={(e) => { e.target.src = 'https://cdn-icons-png.flaticon.com/128/149/149071.png' }} style={{ width: '40px', height: '40px', borderRadius: '25px' }} />
-                                    <input className='comfield' required minlength='2' maxlength='500' type='text' placeholder='Add a comment...' value={body} onChange={(e) => setBody(e.target.value)} />
+        <div className='oneholder'>
+            <div className='onecontainer'>
+                <div className='onewrapper'>
+                    <div className='onecont'>
+                        <div className='qadiv'>
+                            <h1 className='onetitle'>{question.title}</h1>
+                            <div className='onepara'>{question.body}</div>
+                            <form onSubmit={handleSub}>
+                                <div className='comboxcont'>
+                                    <div className='comboxwrapper'>
+                                        <img src={user?.profile_pic} onError={(e) => { e.target.src = 'https://cdn-icons-png.flaticon.com/128/149/149071.png' }} style={{ width: '40px', height: '40px', borderRadius: '25px' }} />
+                                        <input className='comfield' required minlength='2' maxlength='500' type='text' placeholder='Add a comment...' value={body} onChange={(e) => setBody(e.target.value)} />
+                                    </div>
                                 </div>
-                            </div>
+                                <div>
+                                    <button className='adcombtn' type='submit'>Add Comment</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div>
+                        {answers?.map(answer => (
                             <div>
-                                <button className='adcombtn' type='submit'>Add Comment</button>
+                                <OnePageAnswers answer={answer} />
                             </div>
-                        </form>
+                        ))}
                     </div>
                 </div>
-                <div>
-                    {answers?.map(answer => (
-                        <div>
-                            <OnePageAnswers answer={answer} />
-                        </div>
-                    ))}
-                </div>
+            </div>
+            <div className='.rqcontainer'>
+                <RelatedQuestions />
             </div>
         </div>
     )
