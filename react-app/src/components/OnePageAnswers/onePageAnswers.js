@@ -20,13 +20,16 @@ function OnePageAnswers({ answer }) {
 
     const user = users?.filter(user => user?.id == answer.user_id)[0]
     return (
-        <div>
-            <div>
-                {<img src={user?.profile_pic} onError={(e) => { e.target.src = 'https://cdn-icons-png.flaticon.com/128/149/149071.png' }} style={{ width: '40px', height: '40px', borderRadius: '25px' }} />}
+        <div className='comcontainer'>
+            <div className='comwrapper'>
+                <div className='coms'>
+                    <div>
+                        {<img src={user?.profile_pic} onError={(e) => { e.target.src = 'https://cdn-icons-png.flaticon.com/128/149/149071.png' }} style={{ width: '40px', height: '40px', borderRadius: '25px' }} />}
+                    </div>
+                    <div className='comname'>{user?.first_name} {user?.last_name}</div>
+                    <div className='comtxt'>{answer.body}</div>
+                </div>
             </div>
-            <div>{user?.first_name} {user?.last_name}</div>
-            <div>{answer.body}</div>
-            <div>--------------------</div>
         </div>
     )
 }

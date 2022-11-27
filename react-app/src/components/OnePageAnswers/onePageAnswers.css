@@ -1,0 +1,36 @@
+.comcontainer {
+    margin: auto;
+    width: 100%;
+    aspect-ratio: 6/1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: .5%;
+    border-radius: 5px;
+    background-color: #232222;
+}
+
+.comwrapper {
+    width: 70%;
+    /* min-height: 100px; */
+    display: flex;
+    flex-direction: row;
+}
+
+.coms {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    justify-content: space-evenly;
+    margin: 10px;
+}
+
+.comtxt {
+    margin-top: 10px;
+    margin-bottom: 2px;
+}
+
+.comname {
+    color: #666666;
+}
