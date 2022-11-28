@@ -5,6 +5,7 @@ import { getAllQuestions } from '../../store/questions'
 import CreateQuestionFormModal from '../CreateQuestionForm/CreateQuestionModal'
 import CreateSplashQuestionFormModal from '../CreateQuestionForm/CreateSplashQuestionModal'
 import QuestionDetail from '../QuestionDetail/questionDetail'
+import './splash.css'
 
 function AllQuestions() {
     const dispatch = useDispatch()
@@ -35,7 +36,7 @@ function AllQuestions() {
                 </div>
             }
             {!user &&
-                <div className='suggest'> Log in to Interact!</div>
+                <div className='suggest'></div>
             }
             <div className='indvcontainer'>
                 <div className='indvwrap'>
