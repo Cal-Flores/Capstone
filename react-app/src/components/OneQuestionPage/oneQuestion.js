@@ -64,7 +64,7 @@ function SingleQuestion() {
                                     <OnePageAnswers answer={answer} />
                                 </div>
                             </>
-                        ))) : (<div className='emptyspace'>hi</div>)
+                        ))) : (<div></div>)
                     }
                     <div>
                     </div>

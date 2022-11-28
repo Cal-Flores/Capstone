@@ -1,0 +1,50 @@
+.footercontainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: #232222;
+    justify-content: center;
+    margin-top: 5px;
+    /* margin-bottom: 5px; */
+    bottom: 0px;
+    position: sticky;
+}
+
+.footwrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.linkswrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.aref {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+}
+
+.devname {
+    display: flex;
+    flex-direction: row;
+    color: whitesmoke;
+}
+
+
+.hellog {
+    color: whitesmoke;
+    text-decoration: none;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.hellog:hover {
+    color: rgb(245, 41, 54);
+}

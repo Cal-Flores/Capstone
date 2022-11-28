@@ -18,6 +18,7 @@ import EditAnswerForm from './components/EditAnswerForm/editAnswerForm';
 import RelatedQuestions from './components/RelatedQuestions/relatedQuestions';
 import './index.css'
 import LoginForm from './components/LoginFormModal/LoginForm';
+import Footer from './components/footer/footer';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -68,6 +69,7 @@ function App() {
             < EditAnswerForm />
           </ProtectedRoute>
         </Switch>
+        <Footer />
       </BrowserRouter>
     </div>
   );
