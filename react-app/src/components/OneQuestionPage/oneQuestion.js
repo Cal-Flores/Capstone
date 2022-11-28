@@ -48,7 +48,7 @@ function SingleQuestion() {
                                 <div className='comboxcont'>
                                     <div className='comboxwrapper'>
                                         <img src={user?.profile_pic} onError={(e) => { e.target.src = 'https://cdn-icons-png.flaticon.com/128/149/149071.png' }} style={{ width: '40px', height: '40px', borderRadius: '25px' }} />
-                                        <input className='comfield' required minlength='2' maxlength='500' type='text' placeholder='Add a comment...' value={body} onChange={(e) => setBody(e.target.value)} />
+                                        <input className='comfield' required minlength='2' maxlength='250' type='text' placeholder='Add a comment up to 250 characters...' value={body} onChange={(e) => setBody(e.target.value)} />
                                     </div>
                                 </div>
                                 <div>

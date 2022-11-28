@@ -22,7 +22,7 @@ function EditQuestionForm({ q, setShowModal }) {
         let err = []
 
         if (title.length >= 100 || title.length < 4) err.push('Title must be between 4 and 100 characters')
-        if (body.length >= 750 || body.length < 6) err.push('Body must be between 5 and 2000 characters')
+        if (body.length >= 1500 || body.length < 6) err.push('Body must be between 5 and 1500 characters')
         setError(err)
 
     }, [body, title])
@@ -56,7 +56,7 @@ function EditQuestionForm({ q, setShowModal }) {
                         <input required className='e1input' minlength='4' maxlength='101' type='text' placeholder='Question Title' value={title} onChange={(e) => setTitle(e.target.value)} />
                     </div>
                     <div className='ediv'>
-                        <textarea className='e2input' required minlength='4' maxlength='751' type='text' placeholder='Start your question with "What", "How", "Why", etc' value={body} onChange={(e) => setBody(e.target.value)} />
+                        <textarea className='e2input' required minlength='4' maxlength='1501' type='text' placeholder='Start your question with "What", "How", "Why", etc' value={body} onChange={(e) => setBody(e.target.value)} />
                     </div>
                     <div className='cancelmodaledit'>
                         <button className='embtn' disabled={!!error.length} type='submit'>Add Question</button>

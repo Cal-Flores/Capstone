@@ -15,7 +15,7 @@ function QuestionForm({ setShowModal }) {
 
     useEffect(() => {
         let err = []
-        if (body.length >= 750 || body.length <= 4) err.push('Body must be between 5 and 2000 characters')
+        if (body.length >= 1500 || body.length <= 4) err.push('Body must be between 5 and 1500 characters')
         if (title.length >= 100 || title.length <= 3) err.push('Title must be between 4 and 100 characters')
         setError(err)
 
@@ -57,7 +57,7 @@ function QuestionForm({ setShowModal }) {
                     </div>
                     <div className='qdiv'>
 
-                        <textarea contendable className='q2input' required minlength='5' maxlength='751' type='text' placeholder='Start your question with "What", "How", "Why", etc' value={body} onChange={(e) => setBody(e.target.value)} />
+                        <textarea contendable className='q2input' required minlength='5' maxlength='1501' type='text' placeholder='Start your question with "What", "How", "Why", etc' value={body} onChange={(e) => setBody(e.target.value)} />
                     </div>
                     <div className='cancelmodal'>
                         <div>

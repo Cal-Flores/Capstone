@@ -19,7 +19,7 @@ function EditAnswerForm({ a, setShowModal }) {
     useEffect(() => {
         let err = []
 
-        if (body.length >= 100 || body.length < 2) err.push('Answer must be between 4 and 100 characters')
+        if (body.length > 250 || body.length < 2) err.push('Answer must be between 4 and 250 characters')
         setError(err)
 
     }, [body])
@@ -48,7 +48,7 @@ function EditAnswerForm({ a, setShowModal }) {
                 )}
                 <div className='amodalwrapperedit'>
                     <div className='ansdiv'>
-                        <textarea className='ansinput' required minlength='2' maxlength='250' type='text' placeholder='Add a comment...' value={body} onChange={(e) => setBody(e.target.value)} />
+                        <textarea className='ansinput' required minlength='2' maxlength='251' type='text' placeholder='Add a comment...' value={body} onChange={(e) => setBody(e.target.value)} />
                     </div>
                     <div className='cancelmodalans'>
                         <button className='ansbtn' type='submit' disabled={!!error.length}>Add Comment</button>
