@@ -29,6 +29,14 @@
     padding-top: 5px;
     font-size: 16px;
     line-height: 25px;
+    max-height: 200px;
+    overflow: scroll;
+    padding: 8px;
+    border: 1px solid #232222;
+}
+
+.splashpara:hover {
+    border: 1px solid whitesmoke;
 }
 
 .splashname {
@@ -50,4 +58,14 @@
     background-color: #393838;
     padding: 10px;
     border-radius: 20px;
+}
+
+.moretag {
+    color: #4664b7;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.moretag:hover {
+    text-decoration: underline;
 }
