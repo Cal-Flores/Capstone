@@ -57,12 +57,16 @@ function SingleQuestion() {
                             </form>
                         </div>
                     </div>
+                    {answers?.length > 1 ?
+                        (answers.map(answer => (
+                            <>
+                                <div>
+                                    <OnePageAnswers answer={answer} />
+                                </div>
+                            </>
+                        ))) : (<div className='emptyspace'>hi</div>)
+                    }
                     <div>
-                        {answers?.map(answer => (
-                            <div>
-                                <OnePageAnswers answer={answer} />
-                            </div>
-                        ))}
                     </div>
                 </div>
             </div>
