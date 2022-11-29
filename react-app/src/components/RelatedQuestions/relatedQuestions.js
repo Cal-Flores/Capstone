@@ -10,6 +10,7 @@ import '../OneQuestionPage/oneQuestion.css'
 
 function RelatedQuestions() {
     const dispatch = useDispatch()
+    const history = useHistory()
     const questions = useSelector(state => state.related.Related)
     console.log('related questions', questions)
 
@@ -17,7 +18,9 @@ function RelatedQuestions() {
         dispatch(getRelatedQuestions())
     }, [dispatch])
 
-    const red = () => {
+    const red = (e, questId) => {
+        console.log('rq quest it', questId)
+        history.push(`/question/${questId}`)
         window.location.reload();
     }
     return (
@@ -25,8 +28,8 @@ function RelatedQuestions() {
             <div className='rqwrapper'>
                 <div className='rqtitle'>Related Questions</div>
                 {questions?.map(quest => (
-                    <div className='rqnavwrap' onClick={red}>
-                        <NavLink className='navrq' to={`/question/${quest.id}`}>{quest.title}</NavLink>
+                    <div>
+                        <div onClick={(e) => red(e, quest.id)} className='navrq'>{quest.title}</div>
                     </div>
                 ))}
             </div>

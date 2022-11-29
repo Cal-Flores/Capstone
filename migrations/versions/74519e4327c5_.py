@@ -1,20 +1,16 @@
 """empty message
 
-Revision ID: 28fd0c604f9f
-Revises:
-Create Date: 2022-11-28 17:22:06.123102
+Revision ID: 74519e4327c5
+Revises: 
+Create Date: 2022-11-29 12:02:20.746552
 
 """
 from alembic import op
 import sqlalchemy as sa
-import os
-environment = os.getenv("FLASK_ENV")
-SCHEMA = os.environ.get("SCHEMA")
-
 
 
 # revision identifiers, used by Alembic.
-revision = '28fd0c604f9f'
+revision = '74519e4327c5'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -38,18 +34,17 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=True),
     sa.Column('title', sa.String(length=200), nullable=False),
-    sa.Column('body', sa.Text, nullable=False),
+    sa.Column('body', sa.Text(), nullable=False),
     sa.Column('image', sa.String(), nullable=True),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('body'),
     sa.UniqueConstraint('title')
     )
     op.create_table('answers',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=True),
     sa.Column('question_id', sa.Integer(), nullable=True),
-    sa.Column('body', sa.Text, nullable=False),
+    sa.Column('body', sa.Text(), nullable=False),
     sa.Column('image', sa.String(), nullable=True),
     sa.ForeignKeyConstraint(['question_id'], ['questions.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),

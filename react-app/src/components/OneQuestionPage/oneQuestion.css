@@ -120,6 +120,7 @@
     text-decoration: none;
     color: #4664b7;
     font-size: 18px;
+    cursor: pointer;
 }
 
 .navrq:hover {
