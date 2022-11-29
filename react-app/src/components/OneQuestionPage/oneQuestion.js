@@ -15,13 +15,22 @@ function SingleQuestion() {
     const answers = useSelector(state => state.answers.Answers)
     const [body, setBody] = useState('')
     const [image, setImage] = useState('')
+    const [error, setError] = useState([])
 
 
     useEffect(() => {
         dispatch(getOneProduct(questionId)).then(() => dispatch(getAllReviews(questionId)))
     }, [dispatch])
 
+    useEffect(() => {
+        let err = []
 
+        if (body.length == 700) err.push('700 character limit reached, please submit')
+        if (body.length == 690) err.push('10 characters left')
+        if (body.length == 650) err.push('50 characters left')
+
+        setError(err)
+    }, [body])
 
 
     const handleSub = (e) => {
@@ -46,8 +55,8 @@ function SingleQuestion() {
                             <div className='onepara'>{question.body}</div>
                             <form onSubmit={handleSub}>
                                 <div className='comboxcont'>
+                                    <img src={user?.profile_pic} onError={(e) => { e.target.src = 'https://cdn-icons-png.flaticon.com/128/149/149071.png' }} style={{ width: '40px', height: '40px', borderRadius: '25px' }} />
                                     <div className='comboxwrapper'>
-                                        <img src={user?.profile_pic} onError={(e) => { e.target.src = 'https://cdn-icons-png.flaticon.com/128/149/149071.png' }} style={{ width: '40px', height: '40px', borderRadius: '25px' }} />
                                         <input className='comfield' required minlength='2' maxlength='700' type='text' placeholder='Add a comment up to 700 characters...' value={body} onChange={(e) => setBody(e.target.value)} />
                                     </div>
                                 </div>
@@ -71,7 +80,6 @@ function SingleQuestion() {
                 </div>
             </div>
             <div className='.rqcontainer'>
-                <RelatedQuestions />
             </div>
         </div>
     )
