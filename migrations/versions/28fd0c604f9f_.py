@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: d226e8485810
+Revision ID: 28fd0c604f9f
 Revises:
-Create Date: 2022-11-28 14:21:32.324244
+Create Date: 2022-11-28 17:22:06.123102
 
 """
 from alembic import op
@@ -12,8 +12,9 @@ environment = os.getenv("FLASK_ENV")
 SCHEMA = os.environ.get("SCHEMA")
 
 
+
 # revision identifiers, used by Alembic.
-revision = 'd226e8485810'
+revision = '28fd0c604f9f'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -36,8 +37,8 @@ def upgrade():
     op.create_table('questions',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=True),
-    sa.Column('title', sa.String(length=100), nullable=False),
-    sa.Column('body', sa.String(length=1500), nullable=False),
+    sa.Column('title', sa.String(length=200), nullable=False),
+    sa.Column('body', sa.String(length=3000), nullable=False),
     sa.Column('image', sa.String(), nullable=True),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id'),
@@ -48,7 +49,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=True),
     sa.Column('question_id', sa.Integer(), nullable=True),
-    sa.Column('body', sa.String(length=250), nullable=False),
+    sa.Column('body', sa.String(length=550), nullable=False),
     sa.Column('image', sa.String(), nullable=True),
     sa.ForeignKeyConstraint(['question_id'], ['questions.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
