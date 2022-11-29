@@ -47,6 +47,7 @@
     color: whitesmoke;
     margin-right: 65%;
     padding: 10px;
+    cursor: pointer;
 }
 
 .splashtitle:hover {
