@@ -54,9 +54,15 @@ function SingleQuestion() {
                             <h1 className='onetitle'>{question.title}</h1>
                             <div className='onepara'>{question.body}</div>
                             <form onSubmit={handleSub}>
+                                {error.length > 0 && (
+                                    <ul className='comerr'>{error.map((err, i) => (
+                                        <li key={i}>{err}</li>
+                                    ))}
+                                    </ul>
+                                )}
                                 <div className='comboxcont'>
-                                    <img src={user?.profile_pic} onError={(e) => { e.target.src = 'https://cdn-icons-png.flaticon.com/128/149/149071.png' }} style={{ width: '40px', height: '40px', borderRadius: '25px' }} />
                                     <div className='comboxwrapper'>
+                                        <img src={user?.profile_pic} onError={(e) => { e.target.src = 'https://cdn-icons-png.flaticon.com/128/149/149071.png' }} style={{ width: '40px', height: '40px', borderRadius: '25px' }} />
                                         <input className='comfield' required minlength='2' maxlength='700' type='text' placeholder='Add a comment up to 700 characters...' value={body} onChange={(e) => setBody(e.target.value)} />
                                     </div>
                                 </div>
