@@ -21,8 +21,8 @@ function EditQuestionForm({ q, setShowModal }) {
     useEffect(() => {
         let err = []
 
-        if (title.length >= 100 || title.length < 4) err.push('Title must be between 4 and 100 characters')
-        if (body.length >= 1500 || body.length < 6) err.push('Body must be between 5 and 1500 characters')
+        if (title.length > 100 || title.length < 4) err.push('Title must be between 4 and 100 characters')
+        if (body.length > 2500 || body.length < 4) err.push('Body must be between 5 and 2500 characters')
         setError(err)
 
     }, [body, title])
@@ -45,7 +45,7 @@ function EditQuestionForm({ q, setShowModal }) {
     return (
         <form onSubmit={handleSubmit}>
             <div className='qumodalcontaineredit'>
-                {error.length && (
+                {error.length > 0 && (
                     <ul className="error-mapedit">{error.map((err, i) => (
                         <li key={i}>{err}</li>
                     ))}
@@ -56,7 +56,7 @@ function EditQuestionForm({ q, setShowModal }) {
                         <input required className='e1input' minlength='4' maxlength='101' type='text' placeholder='Question Title' value={title} onChange={(e) => setTitle(e.target.value)} />
                     </div>
                     <div className='ediv'>
-                        <textarea className='e2input' required minlength='4' maxlength='1501' type='text' placeholder='Start your question with "What", "How", "Why", etc' value={body} onChange={(e) => setBody(e.target.value)} />
+                        <textarea className='e2input' required minlength='4' maxlength='2501' type='text' placeholder='Start your question with "What", "How", "Why", etc' value={body} onChange={(e) => setBody(e.target.value)} />
                     </div>
                     <div className='cancelmodaledit'>
                         <button className='embtn' disabled={!!error.length} type='submit'>Add Question</button>

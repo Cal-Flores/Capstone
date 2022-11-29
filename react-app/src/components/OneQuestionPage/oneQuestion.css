@@ -51,7 +51,8 @@
 }
 
 .comfield {
-    width: 500px;
+    min-width: 500px;
+    max-width: 1000px;
     height: 25px;
     padding-left: 20px;
     border-radius: 20px;

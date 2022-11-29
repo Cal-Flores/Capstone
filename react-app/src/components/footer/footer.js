@@ -9,19 +9,23 @@ function Footer() {
                     </div>
                 </div>
                 <div className='aref'>
-                    <div className='hellog'>Caleb Flores</div>
+                    <a className='ind-link' href='https://www.linkedin.com/in/caleb-flores-5a988a257/'>
+                        <div className='hellog'>Caleb Flores</div>
+                    </a>
                 </div>
                 <div className='aref'>
-                    <a className="ind-git" href="https://github.com/Cal-Flores"></a>
-                    <div className='hellog'>
-                        <i class="fa-brands fa-github"></i>
-                    </div>
+                    <a className="ind-git" href="https://github.com/Cal-Flores">
+                        <div className='hellog'>
+                            <i class="fa-brands fa-github"></i>
+                        </div>
+                    </a>
                 </div>
                 <div className='aref'>
-                    <a className='ind-link' href='https://www.linkedin.com/in/caleb-flores-5a988a257/'></a>
-                    <div className='hellog'>
-                        <i class="fa-brands fa-linkedin-in"></i>
-                    </div>
+                    <a className='ind-link' href='https://www.linkedin.com/in/caleb-flores-5a988a257/'>
+                        <div className='hellog'>
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </div>
+                    </a>
                 </div>
             </div>
         </footer>

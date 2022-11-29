@@ -19,7 +19,7 @@ function EditAnswerForm({ a, setShowModal }) {
     useEffect(() => {
         let err = []
 
-        if (body.length > 250 || body.length < 2) err.push('Answer must be between 4 and 250 characters')
+        if (body.length > 700 || body.length < 2) err.push('Answer must be between 4 and 700 characters')
         setError(err)
 
     }, [body])
@@ -40,7 +40,7 @@ function EditAnswerForm({ a, setShowModal }) {
     return (
         <form onSubmit={handleSub}>
             <div className='aumodalcontaineredit'>
-                {error.length && (
+                {error.length > 0 && (
                     <ul className="error-mapans">{error.map((err, i) => (
                         <li key={i}>{err}</li>
                     ))}
@@ -48,7 +48,7 @@ function EditAnswerForm({ a, setShowModal }) {
                 )}
                 <div className='amodalwrapperedit'>
                     <div className='ansdiv'>
-                        <textarea className='ansinput' required minlength='2' maxlength='251' type='text' placeholder='Add a comment...' value={body} onChange={(e) => setBody(e.target.value)} />
+                        <textarea className='ansinput' required minlength='2' maxlength='701' type='text' placeholder='Add a comment...' value={body} onChange={(e) => setBody(e.target.value)} />
                     </div>
                     <div className='cancelmodalans'>
                         <button className='ansbtn' type='submit' disabled={!!error.length}>Add Comment</button>

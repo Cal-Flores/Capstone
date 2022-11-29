@@ -52,6 +52,7 @@ function App() {
           </Route>
           <Route path='/' exact={true} >
             < AllQuestions />
+            <Footer />
           </Route>
           <ProtectedRoute path='/question/:questionId' exact={true}>
             < SingleQuestion />
@@ -69,7 +70,6 @@ function App() {
             < EditAnswerForm />
           </ProtectedRoute>
         </Switch>
-        <Footer />
       </BrowserRouter>
     </div>
   );
