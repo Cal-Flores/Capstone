@@ -8,7 +8,7 @@ class Question(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
     title = db.Column(db.String(200), nullable=False, unique=True)
-    body = db.Column(db.String(3000), nullable=False, unique=True)
+    body = db.Column(db.Text, nullable=False)
     image = db.Column(db.String)
 
     #relationships
