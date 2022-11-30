@@ -13,15 +13,25 @@ function SingleQuestion() {
     const question = useSelector(state => state.questions)
     const user = useSelector(state => state.session.user)
     const answers = useSelector(state => state.answers.Answers)
+    console.log('seeds done here my answers', answers)
     const [body, setBody] = useState('')
     const [image, setImage] = useState('')
+    const [error, setError] = useState([])
 
 
     useEffect(() => {
         dispatch(getOneProduct(questionId)).then(() => dispatch(getAllReviews(questionId)))
     }, [dispatch])
 
+    useEffect(() => {
+        let err = []
 
+        if (body.length == 700) err.push('700 character limit reached, please submit')
+        if (body.length == 690) err.push('10 characters left')
+        if (body.length == 650) err.push('50 characters left')
+
+        setError(err)
+    }, [body])
 
 
     const handleSub = (e) => {
@@ -45,6 +55,12 @@ function SingleQuestion() {
                             <h1 className='onetitle'>{question.title}</h1>
                             <div className='onepara'>{question.body}</div>
                             <form onSubmit={handleSub}>
+                                {error.length > 0 && (
+                                    <ul className='comerr'>{error.map((err, i) => (
+                                        <li key={i}>{err}</li>
+                                    ))}
+                                    </ul>
+                                )}
                                 <div className='comboxcont'>
                                     <div className='comboxwrapper'>
                                         <img src={user?.profile_pic} onError={(e) => { e.target.src = 'https://cdn-icons-png.flaticon.com/128/149/149071.png' }} style={{ width: '40px', height: '40px', borderRadius: '25px' }} />
@@ -57,15 +73,9 @@ function SingleQuestion() {
                             </form>
                         </div>
                     </div>
-                    {answers?.length > 1 ?
-                        (answers.map(answer => (
-                            <>
-                                <div>
-                                    <OnePageAnswers answer={answer} />
-                                </div>
-                            </>
-                        ))) : (<div></div>)
-                    }
+                    {answers?.map(answer => (
+                        < OnePageAnswers answer={answer} />
+                    ))}
                     <div>
                     </div>
                 </div>
