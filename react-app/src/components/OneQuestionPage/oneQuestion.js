@@ -13,6 +13,7 @@ function SingleQuestion() {
     const question = useSelector(state => state.questions)
     const user = useSelector(state => state.session.user)
     const answers = useSelector(state => state.answers.Answers)
+    console.log('seeds done here my answers', answers)
     const [body, setBody] = useState('')
     const [image, setImage] = useState('')
     const [error, setError] = useState([])
@@ -72,15 +73,9 @@ function SingleQuestion() {
                             </form>
                         </div>
                     </div>
-                    {answers?.length > 1 ?
-                        (answers.map(answer => (
-                            <>
-                                <div>
-                                    <OnePageAnswers answer={answer} />
-                                </div>
-                            </>
-                        ))) : (<div></div>)
-                    }
+                    {answers?.map(answer => (
+                        < OnePageAnswers answer={answer} />
+                    ))}
                     <div>
                     </div>
                 </div>
