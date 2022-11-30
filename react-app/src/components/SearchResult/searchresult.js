@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Redirect, useHistory } from 'react-router-dom'
 import QuestionDetail from '../QuestionDetail/questionDetail'
-import SearchPage from '../SearchPage/searchpage'
+//import SearchPage from '../SearchPage/searchpage'
 import '../QuestionDetail/questionDetail.css'
 import CreateQuestionFormModal from '../CreateQuestionForm/CreateQuestionModal'
 
@@ -17,7 +17,6 @@ function SearchResult() {
     }
     return (
         <div>
-            <h1>search results:</h1>
             {!results &&
                 <div className='norescont'>
                     <div className='faileds'>

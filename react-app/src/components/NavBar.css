@@ -151,7 +151,7 @@
 .permlinks {
     display: flex;
     flex-direction: row;
-    width: 30%;
+    width: 60%;
     justify-content: space-evenly;
     align-items: center;
 }
@@ -178,4 +178,21 @@
 
 .pdesc {
     line-height: 30px;
+}
+
+.magglass {
+    border: none;
+    color: whitesmoke;
+    background-color: #171616;
+    height: 30px;
+    cursor: pointer;
+}
+
+.searchbarn {
+    border: none;
+    width: 300px;
+    height: 28px;
+    background-color: #171616;
+    outline: none;
+    color: whitesmoke;
 }
