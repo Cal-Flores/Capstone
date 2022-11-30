@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 import answersReducer from './answers';
 import questionsReducer from './questions';
 import relatedReducer from './related';
+import searchReducer from './search';
 import session from './session'
 
 const rootReducer = combineReducers({
@@ -10,6 +11,7 @@ const rootReducer = combineReducers({
   'questions': questionsReducer,
   'answers': answersReducer,
   'related': relatedReducer,
+  'search': searchReducer,
 });
 
 

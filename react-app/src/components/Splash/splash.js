@@ -10,7 +10,7 @@ import './splash.css'
 function AllQuestions() {
     const dispatch = useDispatch()
     const history = useHistory()
-    const questions = useSelector(state => state.questions.Questions)
+    let questions = useSelector(state => state.questions.Questions)
     const user = useSelector(state => state.session.user)
     const [modal, setModal] = useState(false)
 

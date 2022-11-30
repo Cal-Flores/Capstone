@@ -15,9 +15,10 @@ questions_routes = Blueprint('question', __name__)
 def index():
     """get all questions"""
     questions = Question.query.all()
-
     all_questions = []
     all_questions.extend([i.to_dict() for i in questions])
+    # sorted(all_questions, reverse=True)
+    # print('hippie who ha##########################', all_questions)
 
     return {'Questions': all_questions}
 

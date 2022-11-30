@@ -70,3 +70,32 @@
 .moretag:hover {
     text-decoration: underline;
 }
+
+.norescont {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+.norestxt {
+    display: flex;
+    flex-direction: column;
+    color: whitesmoke;
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
+.faileds {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px;
+    /* border: 2px solid whitesmoke; */
+    background-color: #232323;
+    border-radius: 5px;
+    /* border-radius: 5%; */
+    /* margin-bottom: 20px; */
+}

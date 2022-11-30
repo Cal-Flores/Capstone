@@ -19,6 +19,7 @@ import RelatedQuestions from './components/RelatedQuestions/relatedQuestions';
 import './index.css'
 import LoginForm from './components/LoginFormModal/LoginForm';
 import Footer from './components/footer/footer';
+import SearchResult from './components/SearchResult/searchresult';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -41,6 +42,9 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Switch>
+          <Route path='/search-results' exact={true}>
+            <SearchResult />
+          </Route>
           <Route path='/login'>
             <LoginForm />
           </Route>
