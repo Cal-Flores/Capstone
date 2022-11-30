@@ -9,6 +9,7 @@ import CreateQuestionFormModal from "./CreateQuestionForm/CreateQuestionModal";
 import ProfileButton from "./ProfileButton/profileButon";
 import { login } from "../store/session";
 import './NavBar.css'
+import AboutModal from "./NavModal";
 
 
 const NavBar = () => {
@@ -56,9 +57,15 @@ const NavBar = () => {
     <nav className="navhead">
       <div className="navcontainer">
         <div className="navwrapper">
-          <div onClick={(e) => history.push('/')} ClassName='fglogotext'>
-            <div
-              className='fq'> Fourth Quorra <span className="hi"><i class="fa-sharp fa-solid fa-house"></i> </span>
+          <div className="permlinks">
+            <div className='fq'>
+              Fourth Quorra
+            </div>
+            <div className="hi">
+              <i class="fa-sharp fa-solid fa-house"></i>
+            </div>
+            <div className="about">
+              <AboutModal />
             </div>
           </div>
           <div className="userlinks">
@@ -71,3 +78,10 @@ const NavBar = () => {
 }
 
 export default NavBar;
+
+{/* <div onClick={(e) => history.push('/')} ClassName='fglogotext'>
+  <div
+    className='fq'> Fourth Quorra <span className="hi"><i class="fa-sharp fa-solid fa-house"></i> </span>
+  </div>
+  <div className="about">About</div>
+</div> */}

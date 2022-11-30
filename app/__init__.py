@@ -12,6 +12,7 @@ from .config import Config
 from .api.questions_routes import questions_routes
 from .api.answers_routes import answers_routes
 from .api.related_route import relateds_routes
+from .api.search_routes import search_routes
 
 app = Flask(__name__, static_folder='../react-app/build', static_url_path='/')
 
@@ -34,6 +35,7 @@ app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(questions_routes, url_prefix='/api/questions')
 app.register_blueprint(answers_routes, url_prefix='/api/answers')
 app.register_blueprint(relateds_routes, url_prefix='/api/related')
+app.register_blueprint(search_routes, url_prefix='/api/search')
 db.init_app(app)
 Migrate(app, db)
 
