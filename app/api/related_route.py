@@ -12,7 +12,7 @@ relateds_routes = Blueprint('related', __name__)
 @relateds_routes.route('/relatedQ')
 def relate():
     """get Related questions"""
-    questions = Question.query.filter(Question.id % 2 != 0)
+    questions = Question.query.filter(Question.id % 4 == 0)
 
     all_questions = []
     all_questions.extend([i.to_dict() for i in questions])
