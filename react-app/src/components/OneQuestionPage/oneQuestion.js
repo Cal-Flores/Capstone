@@ -81,6 +81,7 @@ function SingleQuestion() {
                 </div>
             </div>
             <div className='.rqcontainer'>
+                <RelatedQuestions />
             </div>
         </div>
     )
