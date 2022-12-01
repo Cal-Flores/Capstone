@@ -8,6 +8,8 @@ import CreateQuestionFormModal from '../CreateQuestionForm/CreateQuestionModal'
 
 function SearchResult() {
     const searcheditems = useSelector(state => state.search.questions)
+    const user = useSelector(state => state.session.user)
+    console.log('me user', user)
     console.log('search results lie here', searcheditems)
     let results;
     if (searcheditems?.length > 0) {
@@ -15,15 +17,23 @@ function SearchResult() {
     } else {
         results = false
     }
+    let curruser
+    if (user == null) {
+        curruser = false
+    } else {
+        curruser = true
+    }
     return (
         <div>
             {!results &&
                 <div className='norescont'>
                     <div className='faileds'>
                         <div className='norestxt'>We couldn't find any results</div>
-                        <div>
-                            <CreateQuestionFormModal />
-                        </div>
+                        {curruser &&
+                            <div>
+                                <CreateQuestionFormModal />
+                            </div>
+                        }
                     </div>
                 </div>
             }
