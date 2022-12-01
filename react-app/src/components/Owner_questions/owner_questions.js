@@ -26,7 +26,7 @@ function OwnerQuestions() {
                     <div>
                         <OwnerQuestionCard question={question} />
                     </div>
-                ))}
+                )).reverse()}
             </div>
             <div>
 
@@ -35,7 +35,7 @@ function OwnerQuestions() {
                 <div>
                     <OwnerAnswerCard answer={answer} />
                 </div>
-            ))}
+            )).reverse()}
         </div>
 
     )

@@ -42,7 +42,7 @@ function AllQuestions() {
                 <div className='indvwrap'>
                     {questions?.map(question => (
                         <QuestionDetail key={question?.id} question={question} />
-                    ))}
+                    )).reverse()}
                 </div>
 
             </div>
