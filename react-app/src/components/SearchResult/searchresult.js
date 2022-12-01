@@ -5,6 +5,7 @@ import QuestionDetail from '../QuestionDetail/questionDetail'
 //import SearchPage from '../SearchPage/searchpage'
 import '../QuestionDetail/questionDetail.css'
 import CreateQuestionFormModal from '../CreateQuestionForm/CreateQuestionModal'
+import './searchresult.css'
 
 function SearchResult() {
     const searcheditems = useSelector(state => state.search.questions)
@@ -37,9 +38,11 @@ function SearchResult() {
                     </div>
                 </div>
             }
-            {results && searcheditems?.map(item => (
-                <QuestionDetail question={item} />
-            ))}
+            <div className='searchresulta'>
+                {results && searcheditems?.map(item => (
+                    <QuestionDetail question={item} />
+                ))}
+            </div>
         </div>
     )
 }
