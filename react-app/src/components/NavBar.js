@@ -10,6 +10,7 @@ import ProfileButton from "./ProfileButton/profileButon";
 import { login } from "../store/session";
 import './NavBar.css'
 import AboutModal from "./NavModal";
+import Searchbar from "./SearchBar/searchBar";
 
 
 const NavBar = () => {
@@ -61,11 +62,14 @@ const NavBar = () => {
             <div className='fq'>
               Fourth Quorra
             </div>
-            <div className="hi">
+            <div onClick={(e) => history.push('/')} className="hi">
               <i class="fa-sharp fa-solid fa-house"></i>
             </div>
             <div className="about">
               <AboutModal />
+            </div>
+            <div>
+              < Searchbar />
             </div>
           </div>
           <div className="userlinks">
