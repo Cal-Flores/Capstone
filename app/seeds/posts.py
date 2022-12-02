@@ -20,9 +20,9 @@ def seed_posts():
         type='post'
     )
     post4 = Post(
-        user_id: 7
-        body: "Find you a man that looks at you the way Justin Herbert looks at coach Staley 😍",
-        image: "https://www.lafbnetwork.com/wp-content/uploads/2022/01/Staley-scaled.jpeg",
+        user_id= 7,
+        body= """Find you a man that looks at you the way Justin Herbert looks at coach Staley""",
+        image= 'https://www.lafbnetwork.com/wp-content/uploads/2022/01/Staley-scaled.jpeg',
         type='post'
     )
 

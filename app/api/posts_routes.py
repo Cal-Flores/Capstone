@@ -39,12 +39,12 @@ def user_posts():
 
 
 @posts_routes.route('/create-post', methods=['POST'])
-#@login_required
+@login_required
 def create_post():
     form = CreatePostForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    user_id = 7
-    #user_id = current_user.id
+    user_id = current_user.id
+    #user_id = 7
 
     if form.validate_on_submit():
 
@@ -59,3 +59,34 @@ def create_post():
         db.session.commit()
         return newPost.to_dict()
     return {'Error': 'bad request'}
+
+# edit a question
+@posts_routes.route('/<int:id>', methods=['PUT'])
+@login_required
+def update_posts(id):
+    form = EditPostForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        post = Post.query.get(id)
+
+
+        post.body = form.data['body']
+        post.image = form.data['image']
+        post.type = form.data['type']
+
+        db.session.commit()
+        return post.to_dict()
+    return {'Error': 'Bad Request'}
+
+
+# delete a question
+@posts_routes.route('/<int:id>', methods=['DELETE'])
+#@login_required
+def delete_post(id):
+    post = Post.query.get(id)
+    if post is not None:
+        db.session.delete(post)
+        db.session.commit()
+        return {'message': 'Successfully Deleted'}
+    return 'Post not found'
