@@ -20,5 +20,5 @@ class Post(db.Model):
             'id': self.id,
             'user_id': self.user_id,
             'body': self.body,
-            'title': self.title,
+            'image': self.image,
         }
