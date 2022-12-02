@@ -13,7 +13,7 @@ function SingleQuestion() {
     const question = useSelector(state => state.questions)
     const user = useSelector(state => state.session.user)
     const answers = useSelector(state => state.answers.Answers)
-    console.log('seeds done here my answers', answers)
+    //console.log('seeds done here my answers', answers)
     const [body, setBody] = useState('')
     const [image, setImage] = useState('')
     const [error, setError] = useState([])

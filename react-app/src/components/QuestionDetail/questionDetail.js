@@ -39,7 +39,7 @@ function QuestionDetail({ content }) {
             <div className='indqcont'>
                 <div className='indqwrapper'>
                     <h2>
-                        <Link className='splashtitle' id='sptitle' key={content?.id} to={`/question/${content.id}`}>{content?.title}</Link>
+                        <Link className='splashtitle' id='sptitle' key={content?.id} to={`/question/${content?.id}`}>{content?.title}</Link>
                     </h2>
                     <div>
                         <img src={user?.profile_pic} onError={(e) => { e.target.src = 'https://cdn-icons-png.flaticon.com/128/149/149071.png' }} style={{ width: '40px', height: '40px', borderRadius: '25px' }} />
