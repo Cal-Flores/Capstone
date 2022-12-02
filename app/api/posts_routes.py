@@ -38,4 +38,24 @@ def user_posts():
     return {'Posts': owner_posts}
 
 
-##################### Answer requests ##########################
+@posts_routes.route('/create-post', methods=['POST'])
+#@login_required
+def create_post():
+    form = CreatePostForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    user_id = 7
+    #user_id = current_user.id
+
+    if form.validate_on_submit():
+
+        params = {
+            'body': form.data['body'],
+            'image': form.data['image'],
+            'type': form.data['type'],
+            'user_id': user_id
+        }
+        newPost = Post(**params)
+        db.session.add(newPost)
+        db.session.commit()
+        return newPost.to_dict()
+    return {'Error': 'bad request'}

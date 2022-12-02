@@ -19,10 +19,17 @@ def seed_posts():
         image='https://cdn.vox-cdn.com/thumbor/hOskM2qSYTmlKkMxtiT2gX1zGJw=/0x0:2241x3000/1400x933/filters:focal(1067x562:1425x920):no_upscale()/cdn.vox-cdn.com/uploads/chorus_image/image/66969485/1181474500.jpg.0.jpg',
         type='post'
     )
+    post4 = Post(
+        user_id: 7
+        body: "Find you a man that looks at you the way Justin Herbert looks at coach Staley 😍",
+        image: "https://www.lafbnetwork.com/wp-content/uploads/2022/01/Staley-scaled.jpeg",
+        type='post'
+    )
 
     db.session.add(post1)
     db.session.add(post2)
     db.session.add(post3)
+    db.session.add(post4)
     db.session.commit()
 
 def undo_posts():
