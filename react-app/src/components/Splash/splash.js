@@ -14,7 +14,9 @@ function AllQuestions() {
     const posts = useSelector(state => state.posts.Posts)
 
     const data = questions?.concat(posts)
-    console.log('this is all my data right here', data)
+    const shuffledData = data?.sort((a, b) => 0.5 - Math.random());
+
+    console.log('this is all my data right here', shuffledData)
 
 
 
@@ -36,8 +38,8 @@ function AllQuestions() {
             }
             <div className='indvcontainer'>
                 <div className='indvwrap'>
-                    {questions?.map(question => (
-                        <QuestionDetail key={question?.id} question={question} />
+                    {shuffledData?.map(content => (
+                        <QuestionDetail key={content?.id} content={content} />
                     )).reverse()}
                 </div>
 

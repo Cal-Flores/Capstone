@@ -20,6 +20,7 @@ import './index.css'
 import LoginForm from './components/LoginFormModal/LoginForm';
 import Footer from './components/footer/footer';
 import SearchResult from './components/SearchResult/searchresult';
+import PostPage from './components/OnePostPage/onepostpage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -60,6 +61,9 @@ function App() {
           </Route>
           <ProtectedRoute path='/question/:questionId' exact={true}>
             < SingleQuestion />
+          </ProtectedRoute>
+          <ProtectedRoute path='/post/:postId' exact={true}>
+            <PostPage />
           </ProtectedRoute>
           <ProtectedRoute path='/your-contents' exact={true}>
             < OwnerQuestions />

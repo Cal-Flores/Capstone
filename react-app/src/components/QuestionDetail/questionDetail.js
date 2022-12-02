@@ -5,9 +5,10 @@ import { Dispatch } from 'react'
 import { getAllReviews } from '../../store/answers'
 import './questionDetail.css'
 
-function QuestionDetail({ question }) {
+function QuestionDetail({ content }) {
     const dispatch = useDispatch()
-    const answers = useSelector(state => state.answers.Answers)
+    //console.log('component content', content)
+    //const answers = useSelector(state => state.answers.Answers)
     // console.log('here are some answers', answers)
     const history = useHistory()
 
@@ -21,36 +22,60 @@ function QuestionDetail({ question }) {
         }
         fetchData();
     }, []);
+    const user = users?.filter(user => user?.id == content?.user_id)[0]
 
-    useEffect(() => {
-        dispatch(getAllReviews(question.id))
-    }, [dispatch])
-
-    const user = users?.filter(user => user?.id == question.user_id)[0]
-
-    const revealcomms = (e) => {
-        e.preventDefault()
-        history.push(`/question/${question.id}`)
+    let contentdiv;
+    if (content?.image != null) {
+        contentdiv = (
+            <div onClick={(e) => history.push(`/post/${content.id}`)}>
+                <div>{content?.body}</div>
+                <div>
+                    <img src={content?.image} style={{ width: '100px', height: '140px' }} />
+                </div>
+            </div>
+        )
+    } else {
+        contentdiv = (
+            <div className='indqcont'>
+                <div className='indqwrapper'>
+                    <h2>
+                        <Link className='splashtitle' id='sptitle' key={content?.id} to={`/question/${content.id}`}>{content?.title}</Link>
+                    </h2>
+                    <div>
+                        <img src={user?.profile_pic} onError={(e) => { e.target.src = 'https://cdn-icons-png.flaticon.com/128/149/149071.png' }} style={{ width: '40px', height: '40px', borderRadius: '25px' }} />
+                    </div>
+                    <div className='splashname'>{user?.first_name} {user?.last_name}</div>
+                    <p className='splashpara'>{content?.body} <Link key={content?.id} to={`/question/${content?.id}`} className='moretag'>(More)</Link></p>
+                </div>
+                <div className='comfavi' onClick={(e) => history.push(`/question/${content?.id}`)}>
+                    <i class="fa-solid fa-comment"></i>
+                </div>
+            </div>
+        )
     }
 
+
     return (
-        <div className='indqcont'>
-            <div className='indqwrapper'>
-                <h2>
-                    <Link className='splashtitle' id='sptitle' key={question.id} to={`/question/${question.id}`}>{question.title}</Link>
-                </h2>
-                <div>
-                    <img src={user?.profile_pic} onError={(e) => { e.target.src = 'https://cdn-icons-png.flaticon.com/128/149/149071.png' }} style={{ width: '40px', height: '40px', borderRadius: '25px' }} />
-                </div>
-                <div className='splashname'>{user?.first_name} {user?.last_name}</div>
-                <p className='splashpara'>{question.body} <Link key={question.id} to={`/question/${question.id}`} className='moretag'>(More)</Link></p>
-            </div>
-            <div className='comfavi' onClick={revealcomms}>
-                <i class="fa-solid fa-comment"></i>
-            </div>
+        <div>
+            {contentdiv}
         </div>
     )
 }
 
 
+// <div className='indqcont'>
+//     <div className='indqwrapper'>
+//         <h2>
+//             <Link className='splashtitle' id='sptitle' key={content.id} to={`/question/${content.id}`}>{content.title}</Link>
+//         </h2>
+//         <div>
+//             <img src={user?.profile_pic} onError={(e) => { e.target.src = 'https://cdn-icons-png.flaticon.com/128/149/149071.png' }} style={{ width: '40px', height: '40px', borderRadius: '25px' }} />
+//         </div>
+//         <div className='splashname'>{user?.first_name} {user?.last_name}</div>
+//         <p className='splashpara'>{content.body} <Link key={content.id} to={`/question/${content.id}`} className='moretag'>(More)</Link></p>
+//     </div>
+//     <div className='comfavi' onClick={revealcomms}>
+//         <i class="fa-solid fa-comment"></i>
+//     </div>
+// </div>
 export default QuestionDetail
