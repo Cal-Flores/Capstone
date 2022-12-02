@@ -1,6 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import answersReducer from './answers';
+import postsReducer from './posts';
 import questionsReducer from './questions';
 import relatedReducer from './related';
 import searchReducer from './search';
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   'answers': answersReducer,
   'related': relatedReducer,
   'search': searchReducer,
+  'posts': postsReducer,
 });
 
 
