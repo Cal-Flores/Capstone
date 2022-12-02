@@ -18,6 +18,7 @@ class User(db.Model, UserMixin):
     profile_pic = db.Column(db.String)
 
     #relationships
+    posts = db.relationship("Post", back_populates="user", cascade="all, delete-orphan")
     questions = db.relationship("Question", back_populates="user", cascade="all, delete-orphan")
     answer = db.relationship("Answer", back_populates="user", cascade="all, delete-orphan")
 
