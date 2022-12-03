@@ -40,7 +40,7 @@ function SearchResult() {
             }
             <div className='searchresulta'>
                 {results && searcheditems?.map(item => (
-                    <QuestionDetail question={item} />
+                    <QuestionDetail content={item} />
                 ))}
             </div>
         </div>
