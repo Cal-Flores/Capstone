@@ -2,6 +2,7 @@
 const LOAD_POSTS = 'posts/LOAD_POSTS'
 const LOAD_ONE = 'posts/LOAD_ONE'
 const LOAD_USER_POSTS = 'posts/LOAD_USER_POSTS'
+const CREATE_POST = 'posts/CREATE_POST'
 const DELETE_POST = 'posts/DELETE_POST'
 
 
@@ -24,6 +25,13 @@ const userPosts = (posts) => {
     return {
         'type': LOAD_USER_POSTS,
         posts
+    }
+}
+
+const createPost = (post) => {
+    return {
+        'type': CREATE_POST,
+        post
     }
 }
 
@@ -77,6 +85,21 @@ export const deleteAPost = (postId) => async dispatch => {
     }
 }
 
+export const createNewPost = (newPost) => async dispatch => {
+    const response = await fetch(`/api/posts/create-post`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newPost)
+    })
+
+    if (response.ok) {
+        const post = await response.json()
+        dispatch(createPost(post))
+        return post
+    }
+    return
+}
+
 
 let initialState = {}
 //######################## Reducer ##########################
@@ -94,6 +117,10 @@ const postsReducer = (state = initialState, action) => {
         }
         case LOAD_USER_POSTS: {
             newState = { ...action.posts }
+            return newState
+        }
+        case CREATE_POST: {
+            newState = { ...action.post }
             return newState
         }
         default:

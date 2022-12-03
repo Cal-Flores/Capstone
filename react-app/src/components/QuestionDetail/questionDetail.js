@@ -11,6 +11,7 @@ function QuestionDetail({ content }) {
     //const answers = useSelector(state => state.answers.Answers)
     // console.log('here are some answers', answers)
     const history = useHistory()
+    console.log('harley missy', content)
 
     const [users, setUsers] = useState([]);
 
@@ -25,16 +26,7 @@ function QuestionDetail({ content }) {
     const user = users?.filter(user => user?.id == content?.user_id)[0]
 
     let contentdiv;
-    if (content?.image != null) {
-        contentdiv = (
-            <div onClick={(e) => history.push(`/post/${content.id}`)}>
-                <div>{content?.body}</div>
-                <div>
-                    <img src={content?.image} style={{ width: '100px', height: '140px' }} />
-                </div>
-            </div>
-        )
-    } else {
+    if (content?.image == null || content?.image == '') {
         contentdiv = (
             <div className='indqcont'>
                 <div className='indqwrapper'>
@@ -49,6 +41,16 @@ function QuestionDetail({ content }) {
                 </div>
                 <div className='comfavi' onClick={(e) => history.push(`/question/${content?.id}`)}>
                     <i class="fa-solid fa-comment"></i>
+                </div>
+            </div>
+        )
+
+    } else {
+        contentdiv = (
+            <div onClick={(e) => history.push(`/post/${content.id}`)}>
+                <div>{content?.body}</div>
+                <div>
+                    <img src={content?.image} style={{ width: '100px', height: '140px' }} />
                 </div>
             </div>
         )
