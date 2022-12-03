@@ -3,6 +3,7 @@ const LOAD_POSTS = 'posts/LOAD_POSTS'
 const LOAD_ONE = 'posts/LOAD_ONE'
 const LOAD_USER_POSTS = 'posts/LOAD_USER_POSTS'
 const CREATE_POST = 'posts/CREATE_POST'
+const EDIT_POST = 'posts/EDIT_POST'
 const DELETE_POST = 'posts/DELETE_POST'
 
 
@@ -41,6 +42,14 @@ const deletePost = (post) => {
         post
     }
 }
+
+const editPost = (newPost) => {
+    return {
+        'type': EDIT_POST,
+        newPost
+    }
+}
+
 //######################## Thunks ############################
 
 export const getAllPosts = () => async dispatch => {
@@ -100,6 +109,20 @@ export const createNewPost = (newPost) => async dispatch => {
     return
 }
 
+export const updatePost = (post, postId) => async dispatch => {
+    const response = await fetch(`/api/posts/${postId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(post)
+    })
+
+    if (response.ok) {
+        const newPost = await response.json()
+        dispatch(editPost(newPost))
+        return newPost
+    }
+    return
+}
 
 let initialState = {}
 //######################## Reducer ##########################

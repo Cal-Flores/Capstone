@@ -11,7 +11,7 @@ function QuestionDetail({ content }) {
     //const answers = useSelector(state => state.answers.Answers)
     // console.log('here are some answers', answers)
     const history = useHistory()
-    console.log('harley missy', content)
+    //console.log('harley missy', content)
 
     const [users, setUsers] = useState([]);
 
