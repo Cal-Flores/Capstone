@@ -6,15 +6,19 @@ import { getUserQuestions } from '../../store/questions'
 import OwnerQuestionCard from '../Your-Questions/your-questions'
 import OwnerAnswerCard from '../Owner_answer_card/owner_answer_card'
 import './owner_questions.css'
+import { getUserPosts } from '../../store/posts'
+import OwnerPostCard from '../Owner_Posts/owner_posts'
+
 
 function OwnerQuestions() {
     const dispatch = useDispatch()
     const questions = useSelector(state => state.questions.Questions)
     const answers = useSelector(state => state.answers.answers)
-    console.log('these are my user answers bigs', answers)
+    const posts = useSelector(state => state.posts.Posts)
+    console.log('###############', posts)
 
     useEffect(() => {
-        dispatch(getUserQuestions()).then(() => dispatch(getUserAnswers()))
+        dispatch(getUserQuestions()).then(() => dispatch(getUserAnswers())).then(() => dispatch(getUserPosts()))
     }, [dispatch])
     return (
         <div>
@@ -22,14 +26,18 @@ function OwnerQuestions() {
                 <div className='yccontainer'>
                     <h1 className='ycheader'>Your Content</h1>
                 </div>
+                <div>
+                    {posts?.map(post => (
+                        <div>
+                            <OwnerPostCard post={post} />
+                        </div>
+                    ))}
+                </div>
                 {questions?.map(question => (
                     <div>
                         <OwnerQuestionCard question={question} />
                     </div>
                 )).reverse()}
-            </div>
-            <div>
-
             </div>
             {answers?.map(answer => (
                 <div>
