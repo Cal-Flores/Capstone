@@ -19,7 +19,7 @@ function EditAnswerForm({ a, setShowModal }) {
     useEffect(() => {
         let err = []
 
-        if (body.length > 700 || body.length < 2) err.push('Answer must be between 4 and 700 characters')
+        if (body.length > 700 || body.length < 2) err.push('Answer must be between 2 and 700 characters')
         setError(err)
 
     }, [body])

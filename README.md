@@ -63,6 +63,6 @@ The Home page of Fourth Quora displays to all users the questions from the datab
 Logged in users can view all thier activity including questions they have asked as well as Answers they have posted. This page allows users to edit and delete any content they have posted, as well as the ability to navigate to the questions that have been asked/answered.
 ![mycontent](ReadmeFeatures/mycontent.png)
 
-The use of modals for logging in, signing up, creating and editing a question and answer are heavily utilized.
+<!-- The use of modals for logging in, signing up, creating and editing a question and answer are heavily utilized.
 ![questionmodal](readmeFeatures/questionmodal.png)
-![loginmodal](readmeFeatures/loginmodal.png)
+![loginmodal](readmeFeatures/loginmodal.png) -->
