@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, Redirect, useHistory, useParams } from 'react-router-dom'
 import { getOnePost } from '../../store/posts'
+import './onepostpage.css'
 
 
 function PostPage() {
@@ -15,9 +16,11 @@ function PostPage() {
         dispatch(getOnePost(postId))
     }, [dispatch])
     return (
-        <div>
-            <div>{post?.body}</div>
-            <img src={post?.image} style={{ width: '500px', height: '540px' }} />
+        <div className='onedetcont'>
+            <div className='onedetwrapper'>
+                <img className='onepostpic' src={post?.image} style={{ width: '100%', height: '50%' }} />
+                <div className='onepostpara'>{post?.body}</div>
+            </div>
         </div>
     )
 }
