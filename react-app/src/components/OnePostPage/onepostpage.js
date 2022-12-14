@@ -18,7 +18,7 @@ function PostPage() {
     return (
         <div className='onedetcont'>
             <div className='onedetwrapper'>
-                <img className='onepostpic' src={post?.image} style={{ width: '100%', height: '50%' }} />
+                <img className='onepostpic' src={post?.image} style={{}} />
                 <div className='onepostpara'>{post?.body}</div>
             </div>
         </div>
