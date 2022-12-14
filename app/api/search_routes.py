@@ -20,9 +20,8 @@ def index():
             results = results.lower()
             questions = Question.query.all()
             posts = Post.query.all()
-            content = questions + posts
             all_quest = []
-            for i in content:
+            for i in questions:
                 if results in i.title.lower() or results in i.body.lower():
                     all_quest.append(
                         {
@@ -32,5 +31,15 @@ def index():
                             'body': i.body,
                             'image': i.image
                         })
+            for x in posts:
+                if results in x.body.lower():
+                    all_quest.append(
+                        {
+                            'id': x.id,
+                            'user_id': x.user_id,
+                            'body': x.body,
+                            'image': x.image
+                        }
+                    )
             return {'questions': all_quest }
     return 'Bad Request'
