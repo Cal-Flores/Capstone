@@ -23,7 +23,7 @@ function OwnerAnswerCard({ answer }) {
         <div className='ancontainer'>
             <div className='anwrapper'>
                 <div className='ancol'>
-                    <div className='ananswer' onClick={redirectme}>Answer</div>
+                    <div className='ananswer' onClick={redirectme}>Comment</div>
                     <div className='anbody'>{answer.body}</div>
                     <div className='edabtn'>
                         <EditAnswerFormModal a={answer} />

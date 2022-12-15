@@ -152,6 +152,10 @@
     cursor: pointer;
 }
 
+.splashpostpara:hover {
+    text-decoration: underline;
+}
+
 .postprof {
     display: flex;
     flex-direction: row;
