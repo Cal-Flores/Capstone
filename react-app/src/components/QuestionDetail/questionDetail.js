@@ -57,7 +57,7 @@ function QuestionDetail({ content }) {
                         {content?.body}
                     </div>
                     <div className='postimg'>
-                        <img src={content?.image} style={{ width: '100%', height: 'auto' }} />
+                        <img src={content?.image} onError={(e) => { e.target.src = 'https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg' }} style={{ width: '100%', height: 'auto' }} />
                     </div>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { createNewPost, getAllPosts, updatePost } from '../../store/posts'
+import { createNewPost, getAllPosts, getUserPosts, updatePost } from '../../store/posts'
 
 
 
@@ -29,7 +29,7 @@ function EditPostForm({ post, setShowModal }) {
             image,
             type
         }
-        dispatch(updatePost(newPost, post.id)).then(() => dispatch(getAllPosts()))
+        dispatch(updatePost(newPost, post.id)).then(() => dispatch(getUserPosts()))
         setShowModal(false)
         return history.push('/your-contents')
     }

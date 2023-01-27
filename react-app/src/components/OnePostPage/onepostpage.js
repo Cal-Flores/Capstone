@@ -18,7 +18,7 @@ function PostPage() {
     return (
         <div className='onedetcont'>
             <div className='onedetwrapper'>
-                <img className='onepostpic' src={post?.image} style={{}} />
+                <img className='onepostpic' src={post?.image} onError={(e) => { e.target.src = 'https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg' }} style={{}} />
                 <div className='onepostpara'>{post?.body}</div>
             </div>
         </div>
