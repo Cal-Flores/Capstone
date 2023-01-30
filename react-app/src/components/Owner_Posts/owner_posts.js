@@ -1,32 +1,32 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, Redirect, useHistory, useParams } from 'react-router-dom'
-import { deleteAAnswer, getUserAnswers } from '../../store/answers'
-import EditAnswerFormModal from '../EditAnswerForm/EditAnswerModal'
-import EditQuestionFormModal from '../EditQuestionForm/editQuestionModal'
-import './owner_answer.css'
+import '../Owner_answer_card/owner_answer.css'
+import { deleteAPost, getUserPosts } from '../../store/posts'
+import EditPostModal from '../EditPost/editPostModal'
 
-function OwnerAnswerCard({ answer }) {
+function OwnerPostCard({ post }) {
     const history = useHistory()
     const dispatch = useDispatch()
 
     const redirectme = (e) => {
         e.preventDefault()
-        history.push(`question/${answer.question_id}`)
+        history.push(`post/${post.id}`)
     }
-
     const deletebtn = async (e) => {
         e.preventDefault()
-        dispatch(deleteAAnswer(answer.id)).then(() => dispatch(getUserAnswers()))
+        dispatch(deleteAPost(post.id)).then(() => dispatch(getUserPosts()))
     }
+
+
     return (
         <div className='ancontainer'>
             <div className='anwrapper'>
                 <div className='ancol'>
-                    <div className='ananswer' onClick={redirectme}>Comment</div>
-                    <div className='anbody'>{answer.body}</div>
+                    <div className='ananswer' onClick={redirectme}>Post</div>
+                    <div className='anbody'>{post.body}</div>
                     <div className='edabtn'>
-                        <EditAnswerFormModal a={answer} />
+                        <EditPostModal post={post} />
                         <button className='yabtn' onClick={deletebtn}>Delete</button>
                     </div>
                 </div>
@@ -35,4 +35,4 @@ function OwnerAnswerCard({ answer }) {
     )
 }
 
-export default OwnerAnswerCard
+export default OwnerPostCard

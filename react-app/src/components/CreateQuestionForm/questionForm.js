@@ -29,6 +29,7 @@ function QuestionForm({ setShowModal }) {
             body,
             image
         }
+        console.log('hey right here!!!!!!!!!!', newQuestion)
         dispatch(createNewQuestion(newQuestion)).then(() => dispatch(getAllQuestions()))
         setShowModal(false)
         return history.push('/')

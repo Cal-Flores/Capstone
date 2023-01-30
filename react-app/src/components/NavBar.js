@@ -28,14 +28,19 @@ const NavBar = () => {
   let userLinks;
   if (sessionUser) {
     userLinks = (
+      // <div className="userlinks2">
       <div className="userlinks2">
-
-        <div className="yourcontent" onClick={(e) => history.push('/your-contents')}>My Content</div>
+        <div
+          className="yourcontent" onClick={(e) => history.push('/your-contents')}>Content
+        </div>
         <div className="addquestion">
           <CreateQuestionFormModal />
         </div>
-        <div className="profileimg"><ProfileButton /></div>
+        <div className="profileimg">
+          <ProfileButton />
+        </div>
       </div>
+      //</div>
     )
   } else {
     userLinks = (
@@ -71,9 +76,9 @@ const NavBar = () => {
             <div>
               < Searchbar />
             </div>
-          </div>
-          <div className="userlinks">
-            {userLinks}
+            <div >
+              {userLinks}
+            </div>
           </div>
         </div>
       </div>

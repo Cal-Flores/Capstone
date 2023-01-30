@@ -11,7 +11,7 @@ import { authenticate } from './store/session';
 import AllQuestions from './components/Splash/splash';
 import QuestionDetail from './components/QuestionDetail/questionDetail';
 import SingleQuestion from './components/OneQuestionPage/oneQuestion';
-import OwnerQuestions from './components/Owner_questions/owner_questions';
+//import OwnerQuestions from './components/Owner_questions/owner_questions';
 import QuestionForm from './components/CreateQuestionForm/questionForm';
 import EditQuestionForm from './components/EditQuestionForm/editQuestionForm';
 import EditAnswerForm from './components/EditAnswerForm/editAnswerForm';
@@ -20,6 +20,8 @@ import './index.css'
 import LoginForm from './components/LoginFormModal/LoginForm';
 import Footer from './components/footer/footer';
 import SearchResult from './components/SearchResult/searchresult';
+import PostPage from './components/OnePostPage/onepostpage';
+import OwnerQuestions from './components/Owner_questions/owner_content';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -61,8 +63,11 @@ function App() {
           <ProtectedRoute path='/question/:questionId' exact={true}>
             < SingleQuestion />
           </ProtectedRoute>
+          <ProtectedRoute path='/post/:postId' exact={true}>
+            <PostPage />
+          </ProtectedRoute>
           <ProtectedRoute path='/your-contents' exact={true}>
-            < OwnerQuestions />
+            <OwnerQuestions />
           </ProtectedRoute>
           <ProtectedRoute path='/create-question' exact={true}>
             < QuestionForm />

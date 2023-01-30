@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import db, Question
+from app.models import db, Question, Post
 from app.forms import SearchForm
 
 
@@ -19,9 +19,10 @@ def index():
             results = form.data['search']
             results = results.lower()
             questions = Question.query.all()
+            posts = Post.query.all()
             all_quest = []
             for i in questions:
-                if results in i.title.lower():
+                if results in i.title.lower() or results in i.body.lower():
                     all_quest.append(
                         {
                             'id': i.id,
@@ -30,5 +31,15 @@ def index():
                             'body': i.body,
                             'image': i.image
                         })
+            for x in posts:
+                if results in x.body.lower():
+                    all_quest.append(
+                        {
+                            'id': x.id,
+                            'user_id': x.user_id,
+                            'body': x.body,
+                            'image': x.image
+                        }
+                    )
             return {'questions': all_quest }
     return 'Bad Request'

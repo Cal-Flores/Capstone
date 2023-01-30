@@ -12,6 +12,7 @@ function SearchResult() {
     const user = useSelector(state => state.session.user)
     console.log('me user', user)
     console.log('search results lie here', searcheditems)
+    const shuffledData = searcheditems?.sort((a, b) => 0.5 - Math.random());
     let results;
     if (searcheditems?.length > 0) {
         results = true
@@ -39,8 +40,8 @@ function SearchResult() {
                 </div>
             }
             <div className='searchresulta'>
-                {results && searcheditems?.map(item => (
-                    <QuestionDetail question={item} />
+                {results && shuffledData?.map(item => (
+                    <QuestionDetail content={item} />
                 ))}
             </div>
         </div>
