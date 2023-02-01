@@ -30,6 +30,7 @@ function PostForm({ setShowModal }) {
         }
         dispatch(createNewPost(newPost)).then(() => dispatch(getAllPosts()))
         setShowModal(false)
+        window.location.reload()
         return history.push('/')
     }
 
