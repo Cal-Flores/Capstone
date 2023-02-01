@@ -1,4 +1,5 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
+from sqlalchemy.sql import func
 
 class Question(db.Model):
     __tablename__ = 'questions'
@@ -10,6 +11,7 @@ class Question(db.Model):
     title = db.Column(db.String(200), nullable=False)
     body = db.Column(db.Text, nullable=False)
     image = db.Column(db.String)
+    created = db.Column(db.DateTime, nullable=False, server_default=func.now())
 
     #relationships
     user = db.relationship('User', back_populates='questions')
@@ -24,4 +26,5 @@ class Question(db.Model):
             'title': self.title,
             'body': self.body,
             'image': self.image,
+            'created': self.created
         }
