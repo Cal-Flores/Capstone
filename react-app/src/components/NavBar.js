@@ -53,7 +53,7 @@ const NavBar = () => {
             <SignUpFormModal />
           </div>
           <button className="outbtn" onClick={demoUser}>
-            Demo User
+            Demo
           </button>
         </div>
       </div>

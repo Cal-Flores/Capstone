@@ -35,7 +35,7 @@
 
 .error-map {
     padding-bottom: 10px;
-    color: rgb(148, 31, 31);
+    color: rgb(245, 0, 0);
 }
 
 .formcontainer {}
@@ -73,24 +73,24 @@
 }
 
 .tipswrap {
-    color: #4664b7;
+    color: #3b6fff;
     /* background-color: #5c7cd2; */
     padding: 10px;
-    border: solid #4664b7;
+    border: solid #3b6fff;
 }
 
 .qmbtn {
     border: none;
     height: 30px;
     width: 120px;
-    background-color: #4664b7;
     border-radius: 30px;
     color: whitesmoke;
     margin-top: 15px;
+    background-color: #3b6fff;
 }
 
 .qmbtn:hover {
-    background-color: #2754cf;
+    background-color: #4664b7;
     cursor: pointer;
 }
 
