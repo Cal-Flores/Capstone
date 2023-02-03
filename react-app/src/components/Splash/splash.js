@@ -13,8 +13,8 @@ function AllQuestions() {
     const user = useSelector(state => state.session.user)
     const posts = useSelector(state => state.posts.Posts)
 
-    // const data = posts
-    //console.log('this is data', data)
+    const data = posts
+    console.log('this is data', data)
     const shuffledData = questions?.concat(posts)
     // const shuffledData = data?.sort((a, b) => 0.5 - Math.random());
     function DateComparator(dateAPair, dateBPair) {
