@@ -95,6 +95,7 @@ export const deleteAPost = (postId) => async dispatch => {
 }
 
 export const createNewPost = (newPost) => async dispatch => {
+    console.log('this is the params sent to store', newPost)
     const response = await fetch(`/api/posts/create-post`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

@@ -14,7 +14,6 @@ function AllQuestions() {
     const posts = useSelector(state => state.posts.Posts)
 
     const data = posts
-    console.log('this is data', data)
     const shuffledData = questions?.concat(posts)
     // const shuffledData = data?.sort((a, b) => 0.5 - Math.random());
     function DateComparator(dateAPair, dateBPair) {
@@ -31,7 +30,7 @@ function AllQuestions() {
     }
 
     shuffledData?.sort(DateComparator);
-    console.log('gnt', shuffledData);
+
 
 
     // console.log('this is all my shuffleddata right here', shuffledData)

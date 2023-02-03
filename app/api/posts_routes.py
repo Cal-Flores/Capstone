@@ -49,7 +49,6 @@ def create_post():
     #user_id = 7
 
     if form.validate_on_submit():
-
         params = {
             'body': form.data['body'],
             'image': form.data['image'],
@@ -62,37 +61,34 @@ def create_post():
         return newPost.to_dict()
     return {'Error': 'bad request'}
 
-# @posts_routes.route("/images", methods=["POST"])
-# @login_required
-# def upload_image():
-#     """
-#     Add an image via an s3 bucket for a post
-#     """
-#     if "image" not in request.files:
-#         return {"errors": "image required"}, 400
+@posts_routes.route("/images", methods=["POST"])
+@login_required
+def upload_image():
+    """
+    Add an image via an s3 bucket for a post
+    """
+    new_list = []
+    if request.files:
+        for x in request.files.getlist('image'):
+            if not allowed_file(x.filename):
+                return {"errors": "File(s) type not permitted"}, 400
+            x.filename = get_unique_filename(x.filename)
 
-#     image = request.files["image"]
+            upload = upload_file_to_s3(x)
 
-#     if not allowed_file(image.filename):
-#         return {"errors": "file type not permitted"}, 400
+            if "url" not in upload:
+            # if the dictionary doesn't have a url key
+            # it means that there was an error when we tried to upload
+            # so we send back that error message
+                return upload, 400
 
-#     image.filename = get_unique_filename(image.filename)
+            url = upload["url"]
+            new_list.append(url)
 
-#     upload = upload_file_to_s3(image)
-
-#     if "url" not in upload:
-#         # if the dictionary doesn't have a url key
-#         # it means that there was an error when we tried to upload
-#         # so we send back that error message
-#         return upload, 400
-
-#     url = upload["url"]
-#     # flask_login allows us to get the current user from the request
-#     new_image = Image(user=current_user, url=url)
-#     db.session.add(new_image)
-#     db.session.commit()
-#     return {"url": url}
-
+        # return {"images": "[" + ", ".join(new_list) + "]"}
+        return {"images": "[" + ", ".join(new_list) + "]"}
+    else:
+        return {"images": ''}
 # edit a question
 @posts_routes.route('/<int:id>', methods=['PUT'])
 @login_required
