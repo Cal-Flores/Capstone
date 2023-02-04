@@ -13,6 +13,13 @@
 
 # misc
 .env
+__pycache__/
+*.py[cod]
+.venv
+.DS_Store
+.vscode/
+app/dev.db
+.env
 .DS_Store
 .env.local
 .env.development.local
