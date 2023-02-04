@@ -9,7 +9,7 @@ class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
     body = db.Column(db.Text, nullable=False)
-    image = db.Column(db.String, nullable=False)
+    image = db.Column(db.Text, nullable=False)
     type = db.Column(db.String, nullable=False)
     created = db.Column(db.DateTime, nullable=False, server_default=func.now())
 
@@ -22,6 +22,6 @@ class Post(db.Model):
             'id': self.id,
             'user_id': self.user_id,
             'body': self.body,
-            'image': self.image,
+            'image': self.image.strip('][').split(', '),
             'created': self.created
         }

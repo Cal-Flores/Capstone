@@ -25,8 +25,7 @@ function PostForm({ setShowModal }) {
         e.preventDefault()
         let newPost = {
             body,
-            image,
-            type
+            type,
         }
         const formData = new FormData();
         formData.append("image", image);
@@ -40,26 +39,27 @@ function PostForm({ setShowModal }) {
             body: formData,
         });
         if (res.ok) {
-            console.log('something GREAT happened')
-            console.log('this is parameters here he', newPost)
-            await res.json();
+            let data = await res.json();
+            newPost.image = data.images
+            console.log('something amazing happened!', data.images)
+            //history.push("/images");
+            let cala = await dispatch(createNewPost(newPost)).then(() => dispatch(getAllPosts()))
+            if (cala) {
+                console.log('dispatches were made bro using this', newPost)
+            }
             setImageLoading(false);
-            // history.push("/images");
+            setShowModal(false)
+            window.location.reload()
+            return history.push('/')
         }
         else {
             setImageLoading(false);
             // a real app would probably use more advanced
             // error handling
-            console.log('something bad happend')
-            console.log("error");
+            console.log("something bad happened");
         }
 
 
-        dispatch(createNewPost(newPost)).then(() => dispatch(getAllPosts()))
-        setShowModal(false)
-        // window.location.reload()
-        console.log('dispatches were made bro using this', newPost)
-        return history.push('/')
     }
 
     const updateImage = (e) => {

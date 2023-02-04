@@ -46,7 +46,6 @@ def create_post():
     form = CreatePostForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     user_id = current_user.id
-    #user_id = 7
 
     if form.validate_on_submit():
         params = {
