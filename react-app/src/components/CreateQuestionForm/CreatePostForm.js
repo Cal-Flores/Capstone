@@ -80,12 +80,13 @@ function PostForm({ setShowModal }) {
                     <div className='qdiv'>
                         {/* <input className='q1input' required minlength='4' type='text' placeholder='Post Image Url' value={image} onChange={(e) => setImage(e.target.value)} /> */}
                         <input
+                            className='choosefile'
                             type="file"
                             accept="image/*"
                             onChange={updateImage}
                         />
-                        <button type="submit">Submit</button>
-                        {(imageLoading) && <p>Loading...</p>}
+                        {/* <button type="submit">Submit</button> */}
+                        {(imageLoading) && <p className='choosefile'>Loading...</p>}
                     </div>
                     <div className='qdiv'>
                         <textarea contendable className='q2input' required minlength='4' maxlength='2501' type='text' placeholder='Say something...' value={body} onChange={(e) => setBody(e.target.value)} />

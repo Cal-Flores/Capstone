@@ -114,3 +114,12 @@
     padding: 10px;
     border-radius: 20px;
 }
+
+.choosefile {
+    color: white;
+}
+
+.file-upload-button {
+    cursor: pointer;
+    ;
+}
