@@ -1,7 +1,7 @@
 """empty message
 
 Revision ID: 5987922dbae1
-Revises: 
+Revises:
 Create Date: 2023-02-03 23:23:29.714142
 
 """
@@ -60,6 +60,13 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('body')
+    # ... logic to create tables
+
+    if environment == "production":
+        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE answers SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE posts SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE questions SET SCHEMA {SCHEMA};")
     )
     # ### end Alembic commands ###
 
