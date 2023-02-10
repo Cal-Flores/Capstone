@@ -37,19 +37,28 @@ function ProfileButton() {
     return (
         <>
             <div className="dropdown">
-                {user &&
-                    <div className="userNav" onClick={openMenu}>
-                        <img src={user?.profile_pic} onError={(e) => { e.target.src = 'https://cdn-icons-png.flaticon.com/128/149/149071.png' }} style={{ width: '40px', height: '40px', borderRadius: '25px' }} />
+                <button className="userNav" onClick={openMenu}>
+                    {user &&
+                        <div className="userNav" onClick={openMenu}>
+                            <img src={user?.profile_pic} onError={(e) => { e.target.src = 'https://cdn-icons-png.flaticon.com/128/149/149071.png' }} style={{ width: '40px', height: '40px', borderRadius: '25px' }} />
+                        </div>
+                    }
+                </button>
+                <div className="profile-dropdown">
+                    <div className="textdiv">
+                        <div>{user.username}</div>
+                        <div>{user.email}</div>
+                        <div className="logtextBtn" onClick={logout}> Log Out</div>
                     </div>
-                }
+                </div>
+
+
+
             </div>
-            {
-                showMenu && (
-                    <div>
-                        <button className="logoutnBtn" onClick={logout}>Log Out</button>
-                    </div>
-                )
-            }
+            <div className="dropdown">
+
+            </div>
+
         </>
     );
 }

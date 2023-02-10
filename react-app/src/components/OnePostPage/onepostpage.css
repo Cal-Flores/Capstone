@@ -9,7 +9,8 @@
 }
 
 .onedetwrapper {
-    width: 60%;
+    width: 90%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,13 +20,15 @@
 .onepostpara {
     color: whitesmoke;
     margin-bottom: 3%;
+    font-size: 1.2em;
+    line-height: 1.5em;
 }
 
 .onepostpic {
-    max-height: 400px;
-    max-width: auto;
-    min-height: 400px;
-    min-width: auto;
+    max-width: 70%;
+    max-height: 70%;
+    min-height: 60%;
+    min-width: 60%;
     margin-bottom: 5%;
     border-radius: 10px;
 }
