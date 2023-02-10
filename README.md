@@ -66,3 +66,84 @@ Logged in users can view all thier activity including questions they have asked 
 <!-- The use of modals for logging in, signing up, creating and editing a question and answer are heavily utilized.
 ![questionmodal](readmeFeatures/questionmodal.png)
 ![loginmodal](readmeFeatures/loginmodal.png) -->
+
+## Road Map for the future
+- <s> creating posts to include images. </s>
+- The ability to set tags on posts/questions.
+- <s> The abilty to delete and edit a Booking you have made. </s>
+- The ability to reply to a comment
+
+## Code im proud of
+
+```
+search_routes = Blueprint('search', __name__)
+
+@search_routes.route('', methods=['GET', 'POST'])
+def index():
+
+    form = SearchForm()
+    # form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit:
+        if len(form.data['search']) < 3:
+            return 'Search requires 3 characters minimun'
+
+        else:
+            results = form.data['search']
+            results = results.lower()
+            questions = Question.query.all()
+            posts = Post.query.all()
+            all_quest = []
+            for i in questions:
+                if results in i.title.lower() or results in i.body.lower():
+                    all_quest.append(
+                        {
+                            'id': i.id,
+                            'user_id': i.user_id,
+                            'title': i.title,
+                            'body': i.body,
+                            'image': i.image
+                        })
+            for x in posts:
+                if results in x.body.lower():
+                    all_quest.append(
+                        {
+                            'id': x.id,
+                            'user_id': x.user_id,
+                            'body': x.body,
+                            'image': x.image
+                        }
+                    )
+            return {'questions': all_quest }
+    return 'Bad Request'
+
+```
+This is my backend route to handle searchs! The search bar on the frontend is a form, using WTForms I gather the data the user inputs. First we make sure they inputed data is enough letters for a competent search (there is also a frontend validator). Then we take the string the user provided and lower case it so the user does not have to worry about capitilization. We then iterate our data base to query if a question title or body, lower cased, contains the users input. We do the same method to a post, and if there is a match we push that question/post into an array. We then pass this array to our frontend so the component may display all relevant content.
+
+```
+function AllQuestions() {
+    const dispatch = useDispatch()
+    let questions = useSelector(state => state.questions.Questions)
+    const user = useSelector(state => state.session.user)
+    const posts = useSelector(state => state.posts.Posts)
+
+    const data = posts
+    const shuffledData = questions?.concat(posts)
+    // const shuffledData = data?.sort((a, b) => 0.5 - Math.random());
+    function DateComparator(dateAPair, dateBPair) {
+
+        var DateA = new Date(dateAPair.created);
+        var DateB = new Date(dateBPair.created);
+        if (DateA < DateB) {
+            return -1;
+        } else if (DateA > DateB) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    shuffledData?.sort(DateComparator);
+```
+This is my sorting algorithm comparing an array of objects by thier time created. first we cincat two arrays and then pass it to the helper function.
+The function compares the first two entries in the array, and creates new dates then compares them. 
